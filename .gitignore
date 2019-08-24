@@ -3,3 +3,4 @@
 !.nethackrc
 !.tmux.conf
 !.gitignore
+!.pylintrc

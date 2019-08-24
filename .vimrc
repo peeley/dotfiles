@@ -75,6 +75,7 @@ set statusline+=%*
 
 let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_pylint_rcfile='/home/bodo/.pylintrc'
 
 let g:syntastic_always_populate_loc_list =1
 let g:syntastic_auto_loc_list =1
