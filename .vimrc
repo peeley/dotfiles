@@ -23,6 +23,10 @@ set showmatch
 set showmode
 set laststatus	=2
 
+" highlight current row
+set cursorline
+hi CursorLine cterm=None ctermbg=darkgrey
+
 " faster redrawing, only when necessary
 set ttyfast
 set lazyredraw
@@ -31,9 +35,10 @@ set lazyredraw
 set incsearch
 set hlsearch
 
-" adds line at char 80 to encourage short lines
+" adds colored line and auto-breaks at char 80 to encourage short lines
 set colorcolumn=80
 set tw=79
+set linebreak
 
 " automatically reads file changes
 set autoread
@@ -57,11 +62,6 @@ set modifiable
 
 " adds matching angle brackets to highlighting
 set matchpairs+=<:>
-" replaces symbols in JavaScript files for readability
-"let g:javascript_conceal_function = "ƒ"
-"let g:javascript_conceal_arrow_function = "⇒"
-"set conceallevel =1
-"map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 
 " keybinding to toggle NERDtree plugin
 map <C-n> :NERDTreeToggle<CR>
@@ -73,6 +73,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
+" set individual prog langs linters
 let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_pylint_rcfile='/home/bodo/.pylintrc'
