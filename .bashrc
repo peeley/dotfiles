@@ -5,7 +5,7 @@
 bind :clear-screen
 
 alias update="yay -Syu --noconfirm"
-alias ls='ls --color=auto --group-directories-first'
+alias ls='exa --color=always --group-directories-first -lh'
 alias haski='cabal install --disable-library-vanilla --enable-shared --enable-executable-dynamic'
 
 export PATH="$PATH:$HOME/.local/bin"
