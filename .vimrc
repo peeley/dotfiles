@@ -31,6 +31,9 @@ hi CursorLine cterm=None ctermbg=darkgrey
 set ttyfast
 set lazyredraw
 
+" renders unicode
+set encoding=utf-8
+
 " searches and highlights as characters are entered
 set incsearch
 set hlsearch
