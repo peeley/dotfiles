@@ -1,5 +1,5 @@
 # sets boolean values to true
-OPTIONS= number_pad, boulder:0, showscore, time, color, hilite_pet
+OPTIONS= boulder:0, showscore, time, color, hilite_pet
 
 # defines item categories valid for autopickup
 OPTIONS= pickup_types: $!?/="
