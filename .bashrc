@@ -4,16 +4,17 @@
 
 bind :clear-screen
 
-alias update="yay -Syu --noconfirm"
+alias up="yay -Syu --noconfirm"
 alias ls='exa --color=always --group-directories-first -lh'
-alias haski='cabal install --disable-library-vanilla --enable-shared --enable-executable-dynamic'
 alias oneup_ssh="ssh root@134.209.55.229"
 alias g="git"
+alias grep="rg"
+alias cat="bat --theme=ansi-dark --style=changes"
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/Programming/go/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
-export GOPATH="$HOME/Programming/go"
+export GOPATH="/mnt/Media/Programming/go"
 
 [[ $- != *i* ]] && return
 
