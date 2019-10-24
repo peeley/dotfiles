@@ -16,6 +16,10 @@ export PATH="$PATH:$HOME/Programming/go/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
 export GOPATH="/mnt/Media/Programming/go"
 
+export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
+export MANPATH="$MANPATH:/opt/texlive/2019/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/opt/texlive/2019/texmf-dist/doc/info"
+
 [[ $- != *i* ]] && return
 
 PS1='\e[0;34m \u\e]\e[m in\e]\e[0;35m \W\e]\e[0;31m@\e]\e[0;32m\h\e]\e[33m λ\e]\e[39m\] '

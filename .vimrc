@@ -68,7 +68,11 @@ set matchpairs+=<:>
 
 " keybinding to toggle NERDtree plugin
 map <C-n> :NERDTreeToggle<CR>
+
+" vimtex customisation for writing LaTeX
 let g:vimtex_view_method ='mupdf'
+let g:tex_flavor = 'latex'
+let g:polyglot_disabled = ['latex']
 
 " syntax checking with Syntastic
 let g:ycm_show_diagnostics_ui=0
@@ -80,11 +84,10 @@ set statusline+=%*
 let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_pylint_rcfile='/home/bodo/.pylintrc'
+let g:syntastic_tex_checkers = []
 
 let g:syntastic_always_populate_loc_list =1
 let g:syntastic_auto_loc_list =1
 let g:syntastic_check_on_open =1
 let g:syntastic_check_on_wq = 0
 
-" incompatibility between vimtex and syntastic
-let g:polyglot_disabled = ['latex']
