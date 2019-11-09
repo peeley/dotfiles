@@ -22,4 +22,6 @@ export INFOPATH="$INFOPATH:/opt/texlive/2019/texmf-dist/doc/info"
 
 [[ $- != *i* ]] && return
 
+export LANG=en_US.utf8
+
 PS1='\e[0;34m \u\e]\e[m in\e]\e[0;35m \W\e]\e[0;31m@\e]\e[0;32m\h\e]\e[33m λ\e]\e[39m\] '
