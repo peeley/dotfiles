@@ -12,9 +12,14 @@ alias grep="rg"
 alias cat="bat --theme=ansi-dark --style=changes"
 
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/Programming/go/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
-export GOPATH="/mnt/Media/Programming/go"
+if [ $HOSTNAME="skynet.mobile" ]; then
+    export PATH="$PATH:$HOME/Programming/go/bin"
+    export GOPATH="$HOME/Programming/go"
+else 
+    export PATH="$PATH:mnt/Media/Programming/go/bin"
+    export GOPATH="mnt/Media/Programming/go"
+fi
 
 export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
 export MANPATH="$MANPATH:/opt/texlive/2019/texmf-dist/doc/man"
