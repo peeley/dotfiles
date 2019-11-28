@@ -10,6 +10,7 @@ alias oneup_ssh="ssh root@134.209.55.229"
 alias g="git"
 alias grep="rg"
 alias cat="bat --theme=ansi-dark --style=changes"
+alias bc="bc -l"
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
