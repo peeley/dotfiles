@@ -1,0 +1,32 @@
+theme = "slick"
+icons = "awesome"
+
+[[block]]
+block = "music"
+player = "spotify"
+max_width = 15
+buttons = ["prev", "play", "next"]
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+
+[[block]]
+block = "cpu"
+interval = 1
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage}% {time}"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 1
+format = "%a %m/%d %r"
+
