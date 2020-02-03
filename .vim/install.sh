@@ -15,6 +15,7 @@ git clone https://github.com/lervag/vimtex.git
 
 # additional YCM language support for Go, JS, Rust, etc. need to be installed
 cd YouCompleteMe
+git submodule update --init --recursive
 python3 install.py --all
 
 cd ../
