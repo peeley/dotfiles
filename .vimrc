@@ -55,6 +55,10 @@ else
         let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" i don't know how many god damn times i hit :W instead of :w or :X not :x
+:command W w
+:cnoreabbrev X x
+
 " package managment through pathogen
 execute pathogen#infect()
 syntax on
