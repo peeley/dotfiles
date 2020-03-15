@@ -89,6 +89,7 @@ let g:syntastic_haskell_checkers = ['hlint']
 let g:syntastic_cpp_checkers = ['clang_check']
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_pylint_rcfile='/home/bodo/.pylintrc'
+let g:syntastic_php_checkers = ['php']
 let g:syntastic_tex_checkers = []
 
 let g:syntastic_always_populate_loc_list =1
