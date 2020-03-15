@@ -1,21 +1,24 @@
-theme = "slick"
-icons = "awesome"
+[theme]
+name = "solarized-dark"
+[theme.overrides]
+idle_bg = "#81a1c1"
+idle_fg = "#4c566a"
+info_bg = "#7995a1"
+info_fg = "#4c566a"
+good_bg = "#a3be8c"
+good_fg = "#4c566a"
+warning_bg = "#ebcb8b"
+warning_fg = "#4c566a"
+critical_bg = "#bf616a"
+critical_fg = "#4c566a"
+[icons]
+name = "awesome"
 
 [[block]]
 block = "music"
 player = "spotify"
-max_width = 15
+max_width = 20
 buttons = ["prev", "play", "next"]
-
-[[block]]
-block = "memory"
-display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
-
-[[block]]
-block = "cpu"
-interval = 1
 
 [[block]]
 block = "battery"
