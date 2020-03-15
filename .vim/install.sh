@@ -12,6 +12,8 @@ git clone https://github.com/ycm-core/YouCompleteMe.git
 git clone https://github.com/rust-lang/rust.vim.git
 # vimtex - compile & view LaTeX automatically
 git clone https://github.com/lervag/vimtex.git
+# vim-vue - syntax highlighting for .vue files
+git clone https://github.com/posva/vim-vue.git
 
 # additional YCM language support for Go, JS, Rust, etc. need to be installed
 cd YouCompleteMe
