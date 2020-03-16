@@ -23,6 +23,7 @@ else
 fi
 
 export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export MANPATH="$MANPATH:/opt/texlive/2019/texmf-dist/doc/man"
 export INFOPATH="$INFOPATH:/opt/texlive/2019/texmf-dist/doc/info"
 
