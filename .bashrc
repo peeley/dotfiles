@@ -11,6 +11,7 @@ alias g="git"
 alias grep="rg"
 alias cat="bat --theme=ansi-dark --style=changes"
 alias bc="bc -l"
+alias vim="mvim -v"
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
@@ -23,7 +24,7 @@ else
 fi
 
 export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+export PATH="$PATH:$HOME/.composer/vendor/bin"
 export MANPATH="$MANPATH:/opt/texlive/2019/texmf-dist/doc/man"
 export INFOPATH="$INFOPATH:/opt/texlive/2019/texmf-dist/doc/info"
 
@@ -33,4 +34,4 @@ export LANG=en_US.utf8
 
 source ~/git-completion.bash
 
-export PS1=" \[\e[34m\]\u\[\e[m\] in \[\e[35m\]\W\[\e[m\]\[\e[31m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[33m\] λ \[\e[m\] "
+export PS1=" \[\e[34m\]\u\[\e[m\] in \[\e[35m\]\W\[\e[m\]\[\e[31m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[33m\] λ \[\e[m\]"
