@@ -33,4 +33,4 @@ export LANG=en_US.utf8
 
 source ~/git-completion.bash
 
-PS1='\e[0;34m \u\e]\e[m in\e]\e[0;35m \W\e]\e[0;31m@\e]\e[0;32m\h\e]\e[33m λ\e]\e[39m\] '
+export PS1=" \[\e[34m\]\u\[\e[m\] in \[\e[35m\]\W\[\e[m\]\[\e[31m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[33m\] λ \[\e[m\] "
