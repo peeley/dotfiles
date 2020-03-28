@@ -4,10 +4,6 @@ OPTIONS= boulder:0, showscore, time, color, hilite_pet
 # defines item categories valid for autopickup
 OPTIONS= pickup_types: $!?/="
 
-#defines status menu colors
-#OPTIONS= statuscolors
-#STATUSCOLOR=HP%100:green,HP%75:yellow,HP%50:orange,HP%25:red&bold&blink
-
 #defines colors for menu items
 OPTIONS=menucolors
 
