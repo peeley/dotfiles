@@ -4,14 +4,12 @@
 
 bind :clear-screen
 
-alias up="yay -Syu --noconfirm"
+alias up="yay -Syu --noconfirm --sudoloop"
 alias ls='exa --color=always --group-directories-first -lh'
-alias oneup_ssh="ssh root@134.209.55.229"
 alias g="git"
 alias grep="rg"
 alias cat="bat --theme=ansi-dark --style=changes"
 alias bc="bc -l"
-alias vim="mvim -v"
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
