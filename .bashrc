@@ -13,12 +13,12 @@ alias bc="bc -l"
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
-if [ $HOSTNAME="skynet.mobile" ]; then
+if [ "$HOSTNAME" = "skynet" ]; then
+    export PATH="$PATH:/mnt/Media/Programming/go/bin"
+    export GOPATH="/mnt/Media/Programming/go"
+else 
     export PATH="$PATH:$HOME/Programming/go/bin"
     export GOPATH="$HOME/Programming/go"
-else 
-    export PATH="$PATH:mnt/Media/Programming/go/bin"
-    export GOPATH="mnt/Media/Programming/go"
 fi
 
 export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
