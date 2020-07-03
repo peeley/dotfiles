@@ -11,21 +11,17 @@ alias grep="rg"
 alias cat="bat --theme=ansi-dark --style=changes"
 alias bc="bc -l"
 
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/usr/local/i386elfgcc"
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:/usr/local/i386elfgcc
 if [ "$HOSTNAME" = "skynet" ]; then
-    export PATH="$PATH:/mnt/Media/Programming/go/bin"
-    export GOPATH="/mnt/Media/Programming/go"
+    export PATH=$PATH:/mnt/Media/Programming/go/bin
+    export GOPATH=/mnt/Media/Programming/go
 else 
-    export PATH="$PATH:$HOME/Programming/go/bin"
-    export GOPATH="$HOME/Programming/go"
+    export PATH=$PATH:$HOME/Programming/go/bin
+    export GOPATH=$HOME/Programming/go
 fi
 
-export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
-export PATH="$PATH:$HOME/.composer/vendor/bin"
-export MANPATH="$MANPATH:/opt/texlive/2019/texmf-dist/doc/man"
-export INFOPATH="$INFOPATH:/opt/texlive/2019/texmf-dist/doc/info"
-
+export RUST_SRC_PATH=$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 [[ $- != *i* ]] && return
 
 export LANG=en_US.utf8
