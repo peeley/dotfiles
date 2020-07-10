@@ -280,7 +280,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -336,8 +336,6 @@ you should place your code here."
   (evil-define-key 'visual evil-surround-mode-map "S" 'evil-surround-region)
 
   ;; show line numbers
-  (when (version<= "26.0.50" emacs-version)
-    (global-display-line-numbers-mode))
   (ansi-color-for-comint-mode-on)
   (add-to-list 'auto-mode-alist '("\\.blade.php\\'" . web-mode))
   (setq powerline-default-separator 'arrow)
