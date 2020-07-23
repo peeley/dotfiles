@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     sql
      rust
      typescript
      (go :variables go-tab-width 4)
@@ -342,58 +343,58 @@ you should place your code here."
   (setq TeX-view-program-selection '((output-pdf "mupdf")))
   (setq TeX-view-program-list '(("mupdf" "mupdf %o")))
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
+
+  ;; Font ligatures kind of a pain in the ass to deal with
+  ;; Might add back later, or just wait til native support
+
   ;; Font ligatures config stolen from:
   ;; rockyourcode.com/fira-code-font-ligatures-in-emacs/spacemacs-on-arch-linux/
-    (defun my-correct-symbol-bounds (pretty-alist)
-        "Prepend a TAB character to each symbol in this alist,
-    this way compose-region called by prettify-symbols-mode
-    will use the correct width of the symbols
-    instead of the width measured by char-width."
-        (mapcar (lambda (el)
-                  (setcdr el (string ?\t (cdr el)))
-                  el)
-                pretty-alist))
+  ;(defun my-correct-symbol-bounds (pretty-alist)
+  ;    "Prepend a TAB character to each symbol in this alist,
+  ;this way compose-region called by prettify-symbols-mode
+  ;will use the correct width of the symbols
+  ;instead of the width measured by char-width."
+  ;    (mapcar (lambda (el)
+  ;              (setcdr el (string ?\t (cdr el)))
+  ;              el)
+  ;            pretty-alist))
+  ;(defun my-ligature-list (ligatures codepoint-start)
+  ;"Create an alist of strings to replace with
+  ;codepoints starting from codepoint-start."
+  ;    (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
+  ;      (-zip-pair ligatures codepoints)))
+  ;(setq my-fira-code-ligatures
+  ;    (let* ((ligs '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
+  ;                  "{-" "[]" "::" ":::" ":=" "!!" "!=" "!==" "-}"
+  ;                  "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
+  ;                  "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
+  ;                  ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
+  ;                  "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
+  ;                  "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
+  ;                  "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
+  ;                  ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
+  ;                  "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
+  ;                  "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
+  ;                  "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
+  ;                  "x" ":" "+" "+" "*")))
+  ;      (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
+  ;(defun my-set-fira-code-ligatures ()
+  ;    "Add fira code ligatures for use with prettify-symbols-mode."
+  ;    (setq prettify-symbols-alist
+  ;          (append my-fira-code-ligatures prettify-symbols-alist))
+  ;    (prettify-symbols-mode))
+  ;(add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
 
-    (defun my-ligature-list (ligatures codepoint-start)
-        "Create an alist of strings to replace with
-    codepoints starting from codepoint-start."
-        (let ((codepoints (-iterate '1+ codepoint-start (length ligatures))))
-          (-zip-pair ligatures codepoints)))
+  ;; adds clock to bottom right corner
+  (display-time-mode 1)
 
-    (setq my-fira-code-ligatures
-        (let* ((ligs '("www" "**" "***" "**/" "*>" "*/" "\\\\" "\\\\\\"
-                      "{-" "[[]]""::" ":::" ":=" "!!" "!=" "!==" "-}"
-                      "--" "---" "-->" "->" "->>" "-<" "-<<" "-~"
-                      "#{" "#[" "##" "###" "####" "#(" "#?" "#_" "#_("
-                      ".-" ".=" ".." "..<" "..." "?=" "??" ";;" "/*"
-                      "/**" "/=" "/==" "/>" "//" "///" "&&" "||" "||="
-                      "|=" "|>" "^=" "$>" "++" "+++" "+>" "=:=" "=="
-                      "===" "==>" "=>" "=>>" "<=" "=<<" "=/=" ">-" ">="
-                      ">=>" ">>" ">>-" ">>=" ">>>" "<*" "<*>" "<|" "<|>"
-                      "<$" "<$>" "<!--" "<-" "<--" "<->" "<+" "<+>" "<="
-                      "<==" "<=>" "<=<" "<>" "<<" "<<-" "<<=" "<<<" "<~"
-                      "<~~" "</" "</>" "~@" "~-" "~=" "~>" "~~" "~~>" "%%"
-                      "x" ":" "+" "+" "*")))
-          (my-correct-symbol-bounds (my-ligature-list ligs #Xe100))))
+  (setq tab-width 4)
 
-    (defun my-set-fira-code-ligatures ()
-        "Add fira code ligatures for use with prettify-symbols-mode."
-        (setq prettify-symbols-alist
-              (append my-fira-code-ligatures prettify-symbols-alist))
-        (prettify-symbols-mode))
-
-    (add-hook 'prog-mode-hook 'my-set-fira-code-ligatures)
-
-    ;; adds clock to bottom right corner
-    (display-time-mode 1)
-
-    (setq tab-width 4)
-
-    ;; Terminal buffer configuration.
-    (add-hook 'term-mode-hook 'my-term-mode-hook)
-    (defun my-term-mode-hook ()
-      ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20611
-      (setq bidi-paragraph-direction 'left-to-right))
+  ;; Terminal buffer configuration.
+  (add-hook 'term-mode-hook 'my-term-mode-hook)
+  (defun my-term-mode-hook ()
+    ;; https://debbugs.gnu.org/cgi/bugreport.cgi?bug=20611
+    (setq bidi-paragraph-direction 'left-to-right))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -408,7 +409,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(package-selected-packages
    (quote
-    (toml-mode racer flycheck-rust cargo rust-mode tide typescript-mode go-guru go-eldoc company-go go-mode carbon-now-sh company-auctex auctex-latexmk auctex flycheck-pos-tip pos-tip flycheck powerline rainbow-mode spinner hydra lv parent-mode projectile pkg-info epl flx highlight smartparens iedit anzu evil goto-chg undo-tree f s dash bind-map bind-key packed helm avy helm-core async popup web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data rainbow-identifiers color-identifiers-mode mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help nord-theme helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode phpunit phpcbf php-extras php-auto-yasnippets yasnippet drupal-mode php-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
+    (sql-indent toml-mode racer flycheck-rust cargo rust-mode tide typescript-mode go-guru go-eldoc company-go go-mode carbon-now-sh company-auctex auctex-latexmk auctex flycheck-pos-tip pos-tip flycheck powerline rainbow-mode spinner hydra lv parent-mode projectile pkg-info epl flx highlight smartparens iedit anzu evil goto-chg undo-tree f s dash bind-map bind-key packed helm avy helm-core async popup web-mode tagedit slim-mode scss-mode sass-mode pug-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data rainbow-identifiers color-identifiers-mode mmm-mode markdown-toc markdown-mode gh-md xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help nord-theme helm-company helm-c-yasnippet fuzzy company-statistics company auto-yasnippet ac-ispell auto-complete smeargle orgit magit-gitflow magit-popup helm-gitignore gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit git-commit with-editor transient web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc coffee-mode phpunit phpcbf php-extras php-auto-yasnippets yasnippet drupal-mode php-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
