@@ -48,7 +48,7 @@ values."
      markdown
      git
      javascript
-     php
+     (php :variables php-backend 'lsp)
      latex
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
