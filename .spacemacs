@@ -32,7 +32,9 @@ values."
    dotspacemacs-configuration-layers
    '(
      yaml
-     (haskell :variables haskell-completion-backend 'lsp)
+     (haskell :variables
+              haskell-completion-backend 'lsp
+              lsp-haskell-process-path-hie "haskell-language-server-wrapper")
      (version-control :variables version-control-diff-side 'left)
      lsp
      vue
