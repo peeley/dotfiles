@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     search-engine
      yaml
      (haskell :variables
               haskell-completion-backend 'lsp
@@ -358,7 +359,15 @@ you should place your code here."
   (display-time-mode 1)
 
   (setq tab-width 4)
+
+  ;; allows for better line wrapping, lines don't break in middle of
+  ;; word and hjkl navigation works properly
   (spacemacs/toggle-visual-line-navigation-on)
+
+  ;; sets default browser for search-engine layer
+  (setq browse-url-browser-function 'browse-url-generic
+        engine/browser-function 'browse-url-generic
+        browse-url-generic-program "firefox")
 
   ;; Terminal buffer configuration.
   (add-hook 'term-mode-hook 'my-term-mode-hook)
