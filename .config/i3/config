@@ -118,16 +118,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 ""
-set $ws2 ""
-set $ws3 ""
-set $ws4 ""
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -194,20 +194,23 @@ bindsym $mod+Control+l exec "i3lock -i /home/bodo/Pictures/sea.png"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-	font pango:curie Bold 10
-    position bottom
-    status_command i3status-rs /home/bodo/.config/i3/status.toml
-    colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #81a1c1 #81a1c1 #eceff4
-        active_workspace #8fbcbb #8fbcbb #eceff4
-        inactive_workspace #4c566a #4c566a  #eceff4
-        urgent_workspace #bf616a #bf616a #ffffff
-    }
-}
+# bar {
+# 	font pango:curie Bold 10
+#     position bottom
+#     status_command i3status-rs /home/bodo/.config/i3/status.toml
+#     colors {
+#         separator #666666
+#         background #222222
+#         statusline #dddddd
+#         focused_workspace #81a1c1 #81a1c1 #eceff4
+#         active_workspace #8fbcbb #8fbcbb #eceff4
+#         inactive_workspace #4c566a #4c566a  #eceff4
+#         urgent_workspace #bf616a #bf616a #ffffff
+#     }
+# }
+
+# start polybar
+exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
 
 default_border none
 hide_edge_borders both
