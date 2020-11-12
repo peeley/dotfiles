@@ -47,10 +47,10 @@ border-size = 0
 border-color = #00000000
 
 padding-left = 0
-padding-right = 2
+padding-right = 0
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = Gohu GohuFont:style=Bold:pixelsize=10;1
 font-1 = JuliaMono:style=Regular:fontformat=truetype:size=8:antialias=false;0
@@ -58,7 +58,7 @@ font-2 = FontAwesome:style=Regular:pixelsize=12;1
 
 modules-left = i3
 ; modules-center = mpd
-modules-right = spotify pulseaudio battery date powermenu
+modules-right = spotify pulseaudio xbacklight battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -224,9 +224,9 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label> <bar>
-label = BL
+label = 
 
-bar-width = 10
+bar-width = 5
 bar-indicator = |
 bar-indicator-foreground = #fff
 bar-indicator-font = 2
@@ -300,10 +300,10 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date = " %Y-%m-%d"
+date = " %h %d"
 date-alt = " %Y-%m-%d"
 
-time = %H:%M:%S
+time = %r
 time-alt = %H:%M:%S
 
 format-prefix = 
@@ -322,7 +322,7 @@ label-volume-foreground = ${root.foreground}
 label-muted =  muted
 label-muted-foreground = #666
 
-bar-volume-width = 10
+bar-volume-width = 5
 bar-volume-foreground-0 = #55aa55
 bar-volume-foreground-1 = #55aa55
 bar-volume-foreground-2 = #55aa55
@@ -376,8 +376,12 @@ full-at = 98
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 
+label-charging = %percentage%%
+
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
+
+label-discharging = %percentage%% %time%
 
 format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.foreground}
@@ -397,7 +401,7 @@ animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-foreground = ${colors.foreground}
 animation-charging-framerate = 750
 
 [module/temperature]

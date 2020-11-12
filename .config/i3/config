@@ -32,7 +32,7 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id redshift-gtk
 
-exec --no-startup-id feh --bg-fill /home/bodo/Pictures/ECmmoCwUwAAkSqF.jpg
+exec_always --no-startup-id feh --bg-scale /home/bodo/Pictures/mist.jpg
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -215,3 +215,5 @@ exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
 default_border none
 hide_edge_borders both
 for_window [class=".*"] border pixel 0
+gaps inner 5
+gaps outer 1
