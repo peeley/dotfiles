@@ -10,7 +10,7 @@ alias g="git"
 alias grep="rg"
 alias cat="bat --theme=ansi-dark --style=changes"
 alias bc="bc -l"
-alias ssh="kitty +kitten ssh"
+# alias ssh="kitty +kitten ssh"
 
 alias webcam="sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2 && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
 
