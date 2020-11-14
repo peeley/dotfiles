@@ -212,6 +212,9 @@ bindsym $mod+Control+l exec "i3lock -i /home/bodo/Pictures/sea.png"
 # start polybar
 exec_always --no-startup-id $HOME/.config/polybar/scripts/launch.sh
 
+# start notification service
+exec_always /usr/lib/xfce4/notifyd/xfce4-notifyd
+
 default_border none
 hide_edge_borders both
 for_window [class=".*"] border pixel 0
