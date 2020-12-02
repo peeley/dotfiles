@@ -32,7 +32,7 @@ exec --no-startup-id nm-applet
 
 exec --no-startup-id redshift-gtk
 
-exec_always --no-startup-id feh --bg-scale /home/bodo/Pictures/mist.jpg
+exec_always --no-startup-id feh --bg-scale /home/bodo/Pictures/mist.png
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status

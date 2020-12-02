@@ -399,7 +399,6 @@ you should place your code here."
 
   ;; backup files fuck up `npm run watch' in typescript projects
   (setq make-backup-files nil)
-  (setq create-lockfiles nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
