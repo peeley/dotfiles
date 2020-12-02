@@ -15,6 +15,7 @@ alias bc="bc -l"
 alias webcam="sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2 && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
 
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/usr/local/i386elfgcc
 if [ "$HOSTNAME" = "skynet" ]; then
     export PATH=$PATH:/mnt/Media/Programming/go/bin

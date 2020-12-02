@@ -33,7 +33,6 @@ values."
    '(
      ranger
      emoji
-     python
      ruby
      csv
      clojure
