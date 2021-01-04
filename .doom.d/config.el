@@ -53,7 +53,18 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; use tab for autocomplete
 (map! (:after company
         (:map company-active-map
          "TAB" #'company-complete-selection
          [tab] #'company-complete-selection)))
+
+;; set cursor color/shape defaults
+(after! evil
+  (setq evil-default-cursor '(t "#EBCB8B")
+        evil-normal-state-cursor '("#EBCB8B" box)
+        evil-insert-state-cursor '("#FFFFFF" bar)
+        evil-visual-state-cursor '("#FFFFFF" hbar)))
+
+;; maximize emacs on startup
+(toggle-frame-maximized)
