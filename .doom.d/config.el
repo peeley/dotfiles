@@ -68,3 +68,12 @@
 
 ;; maximize emacs on startup
 (toggle-frame-maximized)
+
+;; enable language-aware word wrap in most buffers
+(+global-word-wrap-mode t)
+
+;; make Org auto-insert a timestamp when a task cycles to DONE
+(setq org-log-done 'time)
+
+;; change Git commit summary length
+(setq magit-commit-summary-max-length 72)
