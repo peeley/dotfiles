@@ -80,10 +80,10 @@ cursor-scroll = ns-resize
 
 [module/spotify]
 type = custom/script
-tail = true
+interval = 1
 format-prefix = "  "
 format = <label>
-exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
+exec = python .config/polybar/scripts/spotify_status.py -f '{song} - {artist}'
 
 [module/spotify-prev]
 type = custom/script

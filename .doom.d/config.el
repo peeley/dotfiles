@@ -73,7 +73,13 @@
 (+global-word-wrap-mode t)
 
 ;; make Org auto-insert a timestamp when a task cycles to DONE
-(setq org-log-done 'time)
+(after! org-mode
+  (setq org-log-done 'time))
 
 ;; change Git commit summary length
-(setq magit-commit-summary-max-length 72)
+(after! magit
+  (setq magit-commit-summary-max-length 72))
+
+;; use `s' key as substitute in evil-mode
+(after! evil-snipe
+  (evil-snipe-mode -1))
