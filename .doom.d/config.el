@@ -25,7 +25,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'nord)
+(setq doom-theme 'doom-nord)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -83,3 +83,7 @@
 ;; use `s' key as substitute in evil-mode
 (after! evil-snipe
   (evil-snipe-mode -1))
+
+(after! magit
+  (setq forge-alist (push '("gitlab.hr498.net" "gitlab.com/api/v4"
+                            "gitlab.hr498.net" forge-gitlab-repository) forge-alist)))
