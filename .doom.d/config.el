@@ -87,3 +87,5 @@
 (after! magit
   (setq forge-alist (push '("gitlab.hr498.net" "gitlab.com/api/v4"
                             "gitlab.hr498.net" forge-gitlab-repository) forge-alist)))
+(after! elfeed-org
+  (setq rmh-elfeed-org-files '("~/.doom.d/elfeed.org")))
