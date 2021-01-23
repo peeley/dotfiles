@@ -50,3 +50,7 @@
 ;(unpin! t)
 
 (package! nord-theme)
+
+;; hoon mode package
+(package! hoon-mode
+  :recipe (:host github :repo "urbit/hoon-mode.el"))
