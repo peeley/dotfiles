@@ -19,14 +19,14 @@
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #2f343f
-background-alt = #444
+background-alt = #3b4252
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = #e5e9f0
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
-warning = #fffd00
+primary = #81a1c1
+secondary = #a3be8c
+alert = #bf616a
+warning = #ebcb8b
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -165,11 +165,11 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;5
+ws-icon-0 = 1;www
+ws-icon-1 = 2;emacs
+ws-icon-2 = 3;music
+ws-icon-3 = 4;term
+ws-icon-4 = 5;school
 ws-icon-5 = 6;6
 ws-icon-6 = 7;7
 ws-icon-7 = 8;8
@@ -224,15 +224,15 @@ label-song-ellipsis = true
 type = internal/xbacklight
 
 format = <label> <bar>
-label = 
+label =  %percentage%%
 
 bar-width = 5
 bar-indicator = |
-bar-indicator-foreground = #fff
+bar-indicator-foreground = ${colors.foreground}
 bar-indicator-font = 2
 bar-fill = ─
 bar-fill-font = 2
-bar-fill-foreground = #9f78e1
+bar-fill-foreground = #b48ead
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
@@ -298,7 +298,7 @@ format-disconnected =
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 1
 
 date = " %h %d"
 date-alt = " %Y-%m-%d"
@@ -308,7 +308,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-prefix-foreground = ${colors.foreground}
-format-underline = #0a6cf5
+format-underline = #b48ead
 
 label = %date% %time%
 
@@ -317,19 +317,19 @@ type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
 label-volume =   %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${colors.foreground}
 
 label-muted =  muted
 label-muted-foreground = #666
 
 bar-volume-width = 5
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-0 = #a3be8c
+bar-volume-foreground-1 = #a3be8c
+bar-volume-foreground-2 = #a3be8c
+bar-volume-foreground-3 = #a3be8c
+bar-volume-foreground-4 = #a3be8c
 bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-6 = #bf616a
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -351,13 +351,13 @@ format-muted-foreground = ${colors.foreground-alt}
 label-muted = sound muted
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-0 = #a3be8c
+bar-volume-foreground-1 = #a3be8c
+bar-volume-foreground-2 = #a3be8c
+bar-volume-foreground-3 = #a3be8c
+bar-volume-foreground-4 = #a3be8c
 bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
+bar-volume-foreground-6 = #bf616a
 bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
@@ -374,18 +374,18 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = #a3be8c
 
 label-charging = %percentage%%
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = #ebcb8b
 
 label-discharging = %percentage%% %time%
 
 format-full-prefix = "  "
 format-full-prefix-foreground = ${colors.foreground}
-format-full-underline = ${self.format-charging-underline}
+format-full-underline = #a3be8c
 
 ramp-capacity-0 = 
 ramp-capacity-0-foreground = ${colors.alert}
