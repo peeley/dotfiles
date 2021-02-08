@@ -81,12 +81,18 @@
   (setq magit-commit-summary-max-length 72))
 
 ;; use `s' key as substitute in evil-mode
+;; use `,' as localleader key without evil-snipe overriding
 (after! evil-snipe
+  (setq evil-snipe-override-evil-repeat-keys nil)
   (evil-snipe-mode -1))
 
 (after! magit-forge
   (setq forge-alist (push '("gitlab.hr498.net" "gitlab.com/api/v4"
                             "gitlab.hr498.net" forge-gitlab-repository) forge-alist)))
 
+;; RSS feeds stored & organized in org-mode file
 (after! elfeed-org
   (setq rmh-elfeed-org-files '("~/.doom.d/elfeed.org")))
+
+;; use `,' as localleader key instead of SPC-m
+(setq doom-localleader-key ",")
