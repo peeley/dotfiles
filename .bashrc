@@ -1,6 +1,4 @@
-#
-# ~/.bashrc
-#
+#!/bin/bash
 
 bind :clear-screen
 
@@ -11,8 +9,13 @@ alias grep="rg"
 alias cat="bat --theme=ansi-dark --style=changes"
 alias bc="bc -l"
 alias ssh="kitty +kitten ssh"
+alias cprss="scp ~/.doom.d/elfeed.org bodo@192.168.1.21:~/.doom.d/elfeed.org"
 
 alias webcam="sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2 && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
+
+yank(){
+    cat "$1" | xclip -selection c;
+}
 
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
