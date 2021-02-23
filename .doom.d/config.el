@@ -100,3 +100,10 @@
 (after! company
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 1))
+
+(after! urbit
+  (aio-wait-for
+   (urbit-launch (getenv "URBIT_URL") (getenv "URBIT_CODE"))))
+
+(require 'urbit)
+(require 'urbit-chat)

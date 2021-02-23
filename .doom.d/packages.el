@@ -49,8 +49,16 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! nord-theme)
-
 ;; hoon mode package
 (package! hoon-mode
   :recipe (:host github :repo "urbit/hoon-mode.el"))
+
+;; urbit api and dependencies
+(when
+    (and
+     (package! aio
+       :recipe (:host github :repo "skeeto/emacs-aio"))
+     (package! request
+       :recipe (:host github :repo "tkf/emacs-request")))
+    (package! urbit
+      :recipe (:host github :repo "clonex10100/urbit-api.el")))
