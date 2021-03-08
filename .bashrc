@@ -6,7 +6,7 @@ alias up="yay -Syu --noconfirm --sudoloop"
 alias ls='exa --color=always --group-directories-first -lh'
 alias g="git"
 alias grep="rg"
-alias cat="bat --theme=ansi-dark --style=changes"
+alias cat="bat --theme=ansi --style=changes"
 alias bc="bc -l"
 alias ssh="kitty +kitten ssh"
 alias cprss="scp ~/.doom.d/elfeed.org bodo@192.168.1.21:~/.doom.d/elfeed.org"

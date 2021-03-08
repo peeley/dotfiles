@@ -1,0 +1,37 @@
+#+TITLE: Elfeed
+* Feed :elfeed:
+** Blogs
+*** Tech :tech:
+**** https://nadiaeghbal.com/feed.xml :culture:
+**** https://www.stephendiehl.com/feed.rss :haskell:
+**** https://two-wrongs.com/feed :haskell:
+**** https://www.vrk.dev/feed
+**** https://josephg.com/blog/rss/
+**** https://blog.yoshuawuyts.com/rss.xml
+**** https://rachelbythebay.com/w/atom.xml
+**** https://macwright.com/rss.xml
+**** https://jcs.org/rss
+**** https://stevelosh.com/rss.xml :lisp:
+**** https://nvbn.github.io/feed.xml :lisp:
+**** https://justin.abrah.ms/rss.xml :emacs:lisp:
+**** https://soapstone.mradford.com/rss.xml
+**** https://planet.lisp.org/rss20.xml :lisp:
+*** Culture & Politics :culture:
+**** http://100r.co/links/rss.xml
+**** https://lukesmith.xyz/rss.xml :reactionary:politics:
+**** https://notrelated.xyz/rss :reactionary:
+**** https://carcinisation.com/feed/ :rationalism:
+** SubStacks :culture:politics:
+*** https://astralcodexten.substack.com/feed :rationalism:
+*** https://www.carlbeijer.com/ :left:
+*** https://thedorkweb.substack.com/feed :tech:
+*** https://graymirror.substack.com/feed :reactionary:
+*** https://nayafia.substack.com/
+*** https://gwern.substack.com/feed
+*** https://zeynep.substack.com/feed
+*** https://paulskallas.substack.com/feed :reactionary:
+** Newsletters
+*** https://kill-the-newsletter.com/feeds/615digs0qkcilbu9.xml :business:
+mrrr.money
+*** https://kill-the-newsletter.com/feeds/bp0yrunlv1p31uq8.xml :culture:history:
+A Collection of Unmitigated Pedantry
