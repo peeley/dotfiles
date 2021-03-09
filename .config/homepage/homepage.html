@@ -6,7 +6,7 @@
         <title>homepage</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="/home/bodo/.config/homepage/style.css">
     </head>
     <body>
         <div id="title">
@@ -38,3 +38,26 @@
         </div>
     </body>
 </html>
+
+<script type="text/javascript">
+ var timestampElement = document.getElementById("title");
+ var timestampFormat = new Intl.DateTimeFormat('en-US', {
+     month: 'long',
+     year: 'numeric',
+     day: 'numeric',
+     hour: 'numeric',
+     minute: 'numeric',
+     second: 'numeric',
+     timezone: 'America/Los_Angeles'
+ })
+ function setTitleToCurrentTime() {
+    var currentDate = new Date();
+    var dateString = timestampFormat.format(currentDate);
+    timestampElement.innerHTML = dateString;
+ }
+
+ setTitleToCurrentTime();
+
+ window.setInterval(setTitleToCurrentTime, 1000);
+
+</script>
