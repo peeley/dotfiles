@@ -62,3 +62,6 @@
        :recipe (:host github :repo "tkf/emacs-request")))
     (package! urbit
       :recipe (:host github :repo "clonex10100/urbit-api.el")))
+
+(package! nethack
+  :recipe (:local-repo "nethack_el-0.9.5"))

@@ -10,8 +10,10 @@ alias cat="bat --theme=ansi --style=changes"
 alias bc="bc -l"
 alias ssh="kitty +kitten ssh"
 alias cprss="scp ~/.doom.d/elfeed.org bodo@192.168.1.21:~/.doom.d/elfeed.org"
+alias sail="./vendor/bin/sail"
 
 alias webcam="sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2 && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
+alias screen_record="ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
 
 yank(){
     cat "$1" | xclip -selection c;
