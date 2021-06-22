@@ -2,6 +2,8 @@
 
 bind :clear-screen
 
+export SHELL=/bin/bash
+
 alias up="yay -Syu --noconfirm --sudoloop"
 alias ls='exa --color=always --group-directories-first -lh'
 alias g="git"
