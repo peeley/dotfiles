@@ -59,41 +59,41 @@ endif
 :command W w
 :cnoreabbrev X x
 
-" package managment through pathogen
-execute pathogen#infect()
-syntax on
-filetype plugin indent on
-
-" allows creation or deletion of files within NERDTREE plugin
-set modifiable
-
-" adds matching angle brackets to highlighting
-set matchpairs+=<:>
-
-" keybinding to toggle NERDtree plugin
-map <C-n> :NERDTreeToggle<CR>
-
-" vimtex customisation for writing LaTeX
-let g:vimtex_view_method ='mupdf'
-let g:tex_flavor = 'latex'
-let g:polyglot_disabled = ['latex']
-
-" syntax checking with Syntastic
-let g:ycm_show_diagnostics_ui=0
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" set individual prog langs linters
-let g:syntastic_haskell_checkers = ['hlint']
-let g:syntastic_cpp_checkers = ['clang_check']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_pylint_rcfile='/home/bodo/.pylintrc'
-let g:syntastic_php_checkers = ['php']
-let g:syntastic_tex_checkers = []
-
-let g:syntastic_always_populate_loc_list =1
-let g:syntastic_auto_loc_list =1
-let g:syntastic_check_on_open =1
-let g:syntastic_check_on_wq = 0
+" " package managment through pathogen
+" execute pathogen#infect()
+" syntax on
+" filetype plugin indent on
+" 
+" " allows creation or deletion of files within NERDTREE plugin
+" set modifiable
+" 
+" " adds matching angle brackets to highlighting
+" set matchpairs+=<:>
+" 
+" " keybinding to toggle NERDtree plugin
+" map <C-n> :NERDTreeToggle<CR>
+" 
+" " vimtex customisation for writing LaTeX
+" let g:vimtex_view_method ='mupdf'
+" let g:tex_flavor = 'latex'
+" let g:polyglot_disabled = ['latex']
+" 
+" " syntax checking with Syntastic
+" let g:ycm_show_diagnostics_ui=0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" " set individual prog langs linters
+" let g:syntastic_haskell_checkers = ['hlint']
+" let g:syntastic_cpp_checkers = ['clang_check']
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_python_pylint_rcfile='/home/bodo/.pylintrc'
+" let g:syntastic_php_checkers = ['php']
+" let g:syntastic_tex_checkers = []
+" 
+" let g:syntastic_always_populate_loc_list =1
+" let g:syntastic_auto_loc_list =1
+" let g:syntastic_check_on_open =1
+" let g:syntastic_check_on_wq = 0
 
