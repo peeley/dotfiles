@@ -64,7 +64,8 @@
   (setq evil-default-cursor '(t "#EBCB8B")
         evil-normal-state-cursor '("#EBCB8B" box)
         evil-insert-state-cursor '("#FFFFFF" bar)
-        evil-visual-state-cursor '("#FFFFFF" hbar)))
+        evil-visual-state-cursor '("#FFFFFF" hbar))
+  (evil-ex-define-cmd "W" 'save-buffer))
 
 ;; maximize emacs on startup
 (toggle-frame-maximized)
@@ -104,3 +105,8 @@
 (after! urbit
   (aio-wait-for
    (urbit-launch (getenv "URBIT_URL") (getenv "URBIT_CODE"))))
+
+(setq lsp-enable-file-watchers nil)
+
+(after! web-mode
+  (setq web-mode-markup-indent-offset 2))
