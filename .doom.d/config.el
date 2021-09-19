@@ -80,12 +80,6 @@
 (after! magit
   (setq magit-commit-summary-max-length 72))
 
-;; use `s' key as substitute in evil-mode
-;; use `,' as localleader key without evil-snipe overriding
-(after! evil-snipe
-  (setq evil-snipe-override-evil-repeat-keys nil)
-  (evil-snipe-mode -1))
-
 (after! magit-forge
   (setq forge-alist (push '("gitlab.hr498.net" "gitlab.com/api/v4"
                             "gitlab.hr498.net" forge-gitlab-repository) forge-alist)))
@@ -109,3 +103,9 @@
 
 (after! web-mode
   (setq web-mode-markup-indent-offset 2))
+
+(after! smartparens
+  (map! (:localleader
+         (:map smartparens-mode-map
+          "<" #'sp-forward-slurp-sexp
+          ">" #'sp-forward-barf-sexp))))

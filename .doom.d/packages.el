@@ -54,14 +54,13 @@
   :recipe (:host github :repo "urbit/hoon-mode.el"))
 
 ;; urbit api and dependencies
-(when
-    (and
-     (package! aio
-       :recipe (:host github :repo "skeeto/emacs-aio"))
-     (package! request
-       :recipe (:host github :repo "tkf/emacs-request")))
-    (package! urbit
-      :recipe (:host github :repo "clonex10100/urbit-api.el")))
+(when (and
+       (package! aio
+         :recipe (:host github :repo "skeeto/emacs-aio"))
+       (package! request
+         :recipe (:host github :repo "tkf/emacs-request")))
+  (package! urbit
+    :recipe (:host github :repo "clonex10100/urbit-api.el")))
 
 (package! nethack
   :recipe (:local-repo "nethack_el-0.9.5"))
