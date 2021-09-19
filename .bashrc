@@ -25,8 +25,8 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
 export PATH=$PATH:/usr/local/i386elfgcc
 if [ "$HOSTNAME" = "skynet" ]; then
-    export PATH=$PATH:/mnt/Media/Programming/go/bin
-    export GOPATH=/mnt/Media/Programming/go
+    export PATH=$PATH:~/programming/go/bin
+    export GOPATH=~/programming/go
 else 
     export PATH=$PATH:$HOME/Programming/go/bin
     export GOPATH=$HOME/Programming/go
