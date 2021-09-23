@@ -58,7 +58,7 @@ font-2 = FontAwesome:style=Regular:pixelsize=12;1
 
 modules-left = i3
 ; modules-center = mpd
-modules-right = spotify pulseaudio xbacklight battery date powermenu
+modules-right = spotify pulseaudio xbacklight temperature battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -83,7 +83,7 @@ type = custom/script
 interval = 1
 format-prefix = "  "
 format = <label>
-exec = python .config/polybar/scripts/spotify_status.py -f '{song} - {artist}'
+exec = python ~/.config/polybar/scripts/spotify_status.py -f '{song} - {artist}'
 
 [module/spotify-prev]
 type = custom/script
