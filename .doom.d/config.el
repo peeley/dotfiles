@@ -66,9 +66,6 @@
         evil-visual-state-cursor '("#FFFFFF" hbar))
   (evil-ex-define-cmd "W" 'save-buffer))
 
-;; maximize emacs on startup
-(toggle-frame-maximized)
-
 ;; enable language-aware word wrap in most buffers
 (+global-word-wrap-mode t)
 
@@ -102,6 +99,7 @@
 (setq lsp-enable-file-watchers nil)
 
 (after! web-mode
+  (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-markup-indent-offset 2))
 
 (after! smartparens
@@ -109,3 +107,8 @@
          (:map smartparens-mode-map
           "<" #'sp-forward-slurp-sexp
           ">" #'sp-forward-barf-sexp))))
+
+(after! php-cs-fixer
+  (setq php-cs-fixer-command "/Users/nsnelson/.composer/vendor/bin/php-cs-fixer"
+        php-cs-fixer-config-option "/Users/nsnelson/php_cs.dist.php")
+  (add-hook! php-mode #'php-cs-fixer-fix))

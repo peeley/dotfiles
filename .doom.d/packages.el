@@ -64,3 +64,5 @@
 
 (package! nethack
   :recipe (:local-repo "nethack_el-0.9.5"))
+
+(unpin! php-cs-fixer)
