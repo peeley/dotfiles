@@ -26,6 +26,5 @@
     home.packages = with pkgs; [
         ripgrep
         exa
-        tailscale
     ];
 }
