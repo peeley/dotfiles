@@ -3,6 +3,7 @@
 bindkey ";3D" backward-word # Option+<- on mac
 bindkey ";3C" forward-word # Option+-> on mac
 
+alias vim="nvim"
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 alias up="yay -Syu --noconfirm --sudoloop"
 alias ls='exa --color=always --group-directories-first -lh'
