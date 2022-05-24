@@ -1,4 +1,5 @@
 *
+!.config/*
 !.bashrc
 !.nethackrc
 !.tmux.conf
