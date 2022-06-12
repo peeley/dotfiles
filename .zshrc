@@ -11,7 +11,6 @@ alias g="git"
 alias grep="rg"
 alias cat="bat --theme=ansi --style=changes"
 alias bc="bc -l"
-alias ssh="kitty +kitten ssh"
 alias cprss="scp ~/.doom.d/elfeed.org bodo@192.168.1.21:~/.doom.d/elfeed.org"
 alias sail="./vendor/bin/sail"
 

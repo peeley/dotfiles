@@ -26,5 +26,11 @@
     home.packages = with pkgs; [
         ripgrep
         exa
+
+        clojure
+        clj-kondo
+        clojure-lsp
+        leiningen
+        tailscale
     ];
 }
