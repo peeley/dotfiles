@@ -157,7 +157,7 @@
   ];
 
   fileSystems."/mnt/nfs" = {
-    device = "192.168.1.15:/volume1/Media";
+    device = "192.168.1.64:/volume1/Media";
     fsType = "nfs";
   };
 }

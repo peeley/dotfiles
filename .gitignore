@@ -1,7 +1,0 @@
-*
-!.config/*
-!.bashrc
-!.nethackrc
-!.tmux.conf
-!.gitignore
-!.pylintrc
