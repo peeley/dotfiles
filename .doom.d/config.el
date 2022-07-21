@@ -106,10 +106,14 @@
 (after! smartparens
   (map! (:localleader
          (:map smartparens-mode-map
-          "<" #'sp-forward-slurp-sexp
-          ">" #'sp-forward-barf-sexp))))
+          ">" #'sp-forward-slurp-sexp
+          "<" #'sp-forward-barf-sexp))))
 
 (after! php-cs-fixer
   (setq php-cs-fixer-command "$HOME/.composer/vendor/bin/php-cs-fixer"
         php-cs-fixer-config-option "$HOME/php_cs.dist.php")
   (add-hook! php-mode #'php-cs-fixer-fix))
+
+(progn
+    (setenv "DATA_ENVIRONMENT" "intlbr")
+    (setenv "ENVIRONMENT_TYPE" "development"))

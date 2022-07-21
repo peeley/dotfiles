@@ -36,12 +36,14 @@
     home = "/Users/bodo";
   };
 
-
   # enable homebrew package manager
   homebrew.enable = true;
 
   # homebrew packages to install
   homebrew.casks = [
+    "firefox"
+    "slack"
+    "steam"
   ];
 
   programs.zsh.enable = true;
