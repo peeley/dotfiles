@@ -4,6 +4,8 @@
   home.username = "bodo";
   home.homeDirectory = "/home/bodo";
 
+  home.stateVersion = "22.05";
+
   programs.starship = {
       enable = true;
       enableZshIntegration = true;
@@ -97,7 +99,7 @@
     ripgrep
     exa
     unzip
-    minecraft
+    polymc
     paper-icon-theme
     arc-theme
     nordic
