@@ -17,16 +17,9 @@ alias sail="./vendor/bin/sail"
 alias webcam="sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2 && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
 alias screen_record="ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
 
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
-export PATH=$PATH:/usr/local/i386elfgcc
-if [ "$HOSTNAME" = "skynet" ]; then
-    export PATH=$PATH:~/programming/go/bin
-    export GOPATH=~/programming/go
-else 
-    export PATH=$PATH:$HOME/Programming/go/bin
-    export GOPATH=$HOME/Programming/go
-fi
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
+export PATH="$PATH:/usr/local/i386elfgcc"
 
 export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
 export PATH="/opt/homebrew/bin:$PATH"
@@ -39,8 +32,6 @@ export RUST_SRC_PATH=$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/l
 
 export LANG=en_US.utf8
 export EDITOR=vim
-
-# export PS1=" \[\e[34m\]\u\[\e[m\] in \[\e[35m\]\W\[\e[m\]\[\e[31m\]@\[\e[m\]\[\e[32m\]\h\[\e[m\]\[\e[33m\] λ \[\e[m\]"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
