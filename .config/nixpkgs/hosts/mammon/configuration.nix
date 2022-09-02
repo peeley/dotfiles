@@ -156,9 +156,14 @@
     gohufont
   ];
 
+  # add local NFS server
   fileSystems."/mnt/nfs" = {
     device = "192.168.1.64:/volume1/Media";
     fsType = "nfs";
   };
+
+  # enable bluetooth
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 }
 
