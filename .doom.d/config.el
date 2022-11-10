@@ -72,7 +72,8 @@
 
 ;; make Org auto-insert a timestamp when a task cycles to DONE
 (after! org-mode
-  (setq org-log-done 'time))
+  (setq org-log-done 'time)
+  (add-hook 'org-mode-hook #'auto-fill-mode))
 
 ;; change Git commit summary length
 (after! magit
@@ -117,3 +118,8 @@
 (progn
     (setenv "DATA_ENVIRONMENT" "intlbr")
     (setenv "ENVIRONMENT_TYPE" "development"))
+
+(setq org-roam-directory "~/grimoire")
+
+(after! markdown-mode
+  (add-hook 'markdown-mode-hook #'auto-fill-mode))

@@ -99,7 +99,6 @@
     ripgrep
     exa
     unzip
-    polymc
     paper-icon-theme
     arc-theme
     nordic
@@ -108,5 +107,7 @@
     mullvad-vpn
     kitty
     zathura
+    calibre
+    sqlite
   ];
 }
