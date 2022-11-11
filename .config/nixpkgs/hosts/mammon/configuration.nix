@@ -168,5 +168,10 @@
 
   # enable docker
   virtualisation.docker.enable = true;
+
+  nix.extraOptions = ''
+    keep-outputs = true
+    keep-derivations = true
+  '';
 }
 

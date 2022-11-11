@@ -47,3 +47,5 @@ fi
 # starship prompt
 eval "$(starship init zsh)"
 
+# start direnv
+eval "$(direnv hook zsh)"
