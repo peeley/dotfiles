@@ -6,6 +6,8 @@
         enableZshIntegration = true;
     };
 
+    home.stateVersion = "22.05";
+
     programs.git = {
         enable = true;
         userName = "Noah Snelson";
@@ -22,6 +24,11 @@
     };
 
     programs.htop.enable = true;
+
+    programs.direnv = {
+        enable = true;
+        nix-direnv.enable = true;
+    };
 
     home.packages = with pkgs; [
         ripgrep

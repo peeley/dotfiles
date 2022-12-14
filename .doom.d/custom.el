@@ -8,7 +8,8 @@
  '(php-cs-fixer-command "$HOME/.composer/vendor/bin/php-cs-fixer")
  '(php-cs-fixer-config-option "$HOME/php_cs.dist.php")
  '(safe-local-variable-values
-   '((cider-clojure-cli-global-options . "-A:dev:test")
+   '((prettier-js-args "--single-quote")
+     (cider-clojure-cli-global-options . "-A:dev:test")
      (cider-preferred-build-tool . "clojure-cli"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

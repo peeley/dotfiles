@@ -29,6 +29,9 @@
     extra-platforms = aarch64-darwin x86_64-darwin
     experimental-features = nix-command flakes
     build-users-group = nixbld
+
+    keep-outputs = true
+    keep-derivations = true
   '';
 
   users.users.bodo = {
@@ -44,6 +47,7 @@
     "firefox"
     "slack"
     "steam"
+    "mullvadvpn"
   ];
 
   programs.zsh.enable = true;
