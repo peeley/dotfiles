@@ -123,3 +123,5 @@
 
 (after! markdown-mode
   (add-hook 'markdown-mode-hook #'auto-fill-mode))
+
+(set-company-backend! 'alchemist-iex-mode 'alchemist-company)

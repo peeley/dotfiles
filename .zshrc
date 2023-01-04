@@ -18,7 +18,6 @@ alias webcam="sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2 && gphot
 alias screen_record="ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
 
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:$HOME/.gem/ruby/2.7.0/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
 
 export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
