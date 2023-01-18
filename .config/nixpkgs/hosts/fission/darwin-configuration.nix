@@ -48,6 +48,7 @@
     "slack"
     "steam"
     "mullvadvpn"
+    "syncthing"
   ];
 
   programs.zsh.enable = true;
