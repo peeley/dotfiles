@@ -107,8 +107,6 @@
     paper-icon-theme
     arc-theme
     nordic
-    lutris
-    deluge
     mullvad-vpn
     kitty
     zathura

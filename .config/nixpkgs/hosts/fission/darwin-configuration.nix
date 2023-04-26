@@ -9,10 +9,7 @@
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
-    # firefox
-    # slack
     terminal-notifier
-    mpv
   ];
 
   # Use a custom configuration.nix location.
@@ -49,6 +46,8 @@
     "steam"
     "mullvadvpn"
     "syncthing"
+    "jellyfin-media-player"
+    "calibre"
   ];
 
   programs.zsh.enable = true;
