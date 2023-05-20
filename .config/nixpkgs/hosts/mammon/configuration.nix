@@ -123,11 +123,37 @@
   services.tailscale.enable = true;
   services.mullvad-vpn.enable = true;
 
+  services.syncthing = {
+    enable = true;
+    dataDir = "/home/bodo/grimoire";
+    configDir = "/home/bodo/grimoire/.config/syncthing";
+    user = "bodo";
+    group = "users";
+
+    devices = {
+      android = {
+        id = "7D4F3Z4-DU6FTN3-EPEXKG4-DVARWQQ-67GSQ7R-AANHUOA-2RTRXX6-WEPJAQB";
+      };
+
+      fission = {
+        id = "IVZ5SLI-HMTN7LR-STXFGO7-2E2UEYD-VZSISNI-CYHL3QG-BRMWKZ2-Y7CA4QP";
+      };
+    };
+
+    folders = {
+      "grimoire" = {
+        path = "/home/bodo/grimoire";
+        ignorePerms = true;
+      };
+    };
+  };
+
   location = {
     provider = "manual"; 
     latitude = 34.052235; 
     longitude = -118.243683;
   };
+
   services.redshift.enable = true;
 
   # Enable the OpenSSH daemon.
@@ -158,7 +184,7 @@
 
   # add local NFS server
   fileSystems."/mnt/nfs" = {
-    device = "192.168.1.64:/volume1/Media";
+    device = "192.168.1.122:/volume1/Media";
     fsType = "nfs";
   };
 
