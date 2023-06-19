@@ -112,5 +112,14 @@
     zathura
     calibre
     sqlite
+    bind
+    (retroarch.override {
+      cores = with libretro; [
+        beetle-psx-hw
+        pcsx2
+        dolphin
+        bsnes
+      ];
+    })
   ];
 }
