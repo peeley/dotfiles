@@ -79,10 +79,6 @@
 (after! magit
   (setq magit-commit-summary-max-length 72))
 
-(after! magit-forge
-  (setq forge-alist (push '("gitlab.hr498.net" "gitlab.com/api/v4"
-                            "gitlab.hr498.net" forge-gitlab-repository) forge-alist)))
-
 ;; RSS feeds stored & organized in org-mode file
 (after! elfeed-org
   (setq rmh-elfeed-org-files '("~/.doom.d/elfeed.org")))
@@ -93,10 +89,6 @@
 (after! company
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 1))
-
-(after! urbit
-  (aio-wait-for
-   (urbit-launch (getenv "URBIT_URL") (getenv "URBIT_CODE"))))
 
 (setq lsp-enable-file-watchers nil)
 
