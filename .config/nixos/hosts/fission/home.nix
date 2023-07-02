@@ -38,6 +38,5 @@
         clj-kondo
         clojure-lsp
         leiningen
-        tailscale
     ];
 }

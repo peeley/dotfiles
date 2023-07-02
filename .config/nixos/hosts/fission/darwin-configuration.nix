@@ -19,7 +19,10 @@
   services.nix-daemon.enable = true;
   nix.package = pkgs.nixFlakes;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnsupportedSystem = true;
+  };
 
   nix.extraOptions = ''
     system = aarch64-darwin
@@ -44,10 +47,10 @@
     "firefox"
     "slack"
     "steam"
-    "mullvadvpn"
     "syncthing"
     "jellyfin-media-player"
     "calibre"
+    "tailscale"
   ];
 
   programs.zsh.enable = true;
