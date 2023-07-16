@@ -51,6 +51,7 @@
     "jellyfin-media-player"
     "calibre"
     "tailscale"
+    "obsidian"
   ];
 
   programs.zsh.enable = true;
