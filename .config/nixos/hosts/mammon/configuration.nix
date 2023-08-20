@@ -13,7 +13,6 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub = {
     enable = true;
-    version = 2;
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
@@ -123,31 +122,6 @@
   services.tailscale.enable = true;
   services.mullvad-vpn.enable = true;
 
-  services.syncthing = {
-    enable = true;
-    dataDir = "/home/bodo/grimoire";
-    configDir = "/home/bodo/grimoire/.config/syncthing";
-    user = "bodo";
-    group = "users";
-
-    devices = {
-      android = {
-        id = "7D4F3Z4-DU6FTN3-EPEXKG4-DVARWQQ-67GSQ7R-AANHUOA-2RTRXX6-WEPJAQB";
-      };
-
-      fission = {
-        id = "IVZ5SLI-HMTN7LR-STXFGO7-2E2UEYD-VZSISNI-CYHL3QG-BRMWKZ2-Y7CA4QP";
-      };
-    };
-
-    folders = {
-      "grimoire" = {
-        path = "/home/bodo/grimoire";
-        ignorePerms = true;
-      };
-    };
-  };
-
   location = {
     provider = "manual"; 
     latitude = 34.052235; 
@@ -175,7 +149,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     dina-font
     proggyfonts
     julia-mono
@@ -194,6 +168,10 @@
 
   # enable docker
   virtualisation.docker.enable = true;
+
+  # enable virtualbox
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "bodo" ];
 
   nix.extraOptions = ''
     keep-outputs = true
