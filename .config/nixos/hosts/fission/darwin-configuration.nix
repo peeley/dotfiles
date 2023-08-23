@@ -51,6 +51,7 @@
     "jellyfin-media-player"
     "calibre"
     "tailscale"
+    "retroarch"
   ];
 
   programs.zsh.enable = true;

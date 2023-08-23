@@ -38,5 +38,7 @@
         clj-kondo
         clojure-lsp
         leiningen
+
+        go
     ];
 }
