@@ -52,6 +52,7 @@
     "calibre"
     "tailscale"
     "retroarch"
+    "obsidian"
   ];
 
   programs.zsh.enable = true;

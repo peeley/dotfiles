@@ -121,5 +121,7 @@
         bsnes
       ];
     })
+    rpcs3
+    obsidian
   ];
 }
