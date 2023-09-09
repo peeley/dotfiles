@@ -13,6 +13,7 @@
   # Use the GRUB 2 boot loader.
   boot.loader.grub = {
     enable = true;
+    version = 2;
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
@@ -149,7 +150,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 
-  fonts.packages = with pkgs; [
+  fonts.fonts = with pkgs; [
     dina-font
     proggyfonts
     julia-mono
@@ -176,6 +177,7 @@
   nix.extraOptions = ''
     keep-outputs = true
     keep-derivations = true
+    experimental-features = nix-command flakes
   '';
 }
 

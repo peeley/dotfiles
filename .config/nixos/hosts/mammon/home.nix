@@ -4,7 +4,7 @@
   home.username = "bodo";
   home.homeDirectory = "/home/bodo";
 
-  home.stateVersion = "22.05";
+  home.stateVersion = "22.11";
 
   programs.starship = {
       enable = true;
@@ -24,6 +24,8 @@
           style = "changes";
       };
   };
+
+  programs.home-manager.enable = true;
 
   programs.neovim = {
     enable = true;

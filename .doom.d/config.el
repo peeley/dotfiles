@@ -116,4 +116,8 @@
 (after! markdown-mode
   (add-hook 'markdown-mode-hook #'auto-fill-mode))
 
-(set-company-backend! 'alchemist-iex-mode 'alchemist-company)
+;; (set-company-backend! 'alchemist-iex-mode 'alchemist-company)
+
+;; (after! lsp-mode
+;;   (setq lsp-elixir-dialyzer-enabled nil)
+;;   (setq lsp-elixir-server-command "elixir-ls"))
