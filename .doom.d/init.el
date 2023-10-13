@@ -86,7 +86,7 @@
        :tools
        ;;ansible
        ;;debugger          ; FIXME stepping through code, to help you add bugs
-       ;;direnv
+       direnv
        docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
@@ -94,7 +94,7 @@
        ;;gist              ; interacting with github gists
        lookup              ; navigate your code and its documentation
        (lsp +peek)
-       (magit +forge)     ; a git porcelain for Emacs
+       magit               ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
        pdf               ; pdf enhancements
@@ -112,14 +112,14 @@
        :lang
        ;;agda              ; types of types of types of types...
        (cc +lsp)                ; C/C++/Obj-C madness
-       clojure           ; java with a lisp
+       (clojure +lsp)           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
-       ;;csharp            ; unity, .NET, and mono shenanigans
+       (csharp +lsp)            ; unity, .NET, and mono shenanigans
        ;;data              ; config/data formats
        ;;(dart +flutter)   ; paint ui and not much else
-       elixir            ; erlang done right
+       (elixir +lsp)            ; erlang done right
        ;;elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
@@ -146,7 +146,7 @@
        ;;nim               ; python + lisp at the speed of c
        nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
-       org               ; organize your plain life in plain text
+       (org +roam2)               ; organize your plain life in plain text
        (php +lsp)               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
@@ -156,7 +156,7 @@
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
-       ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (ruby +rails +lsp)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
        ;;rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        (scheme +guile)            ; a fully conniving family of lisps

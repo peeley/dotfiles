@@ -72,15 +72,12 @@
 
 ;; make Org auto-insert a timestamp when a task cycles to DONE
 (after! org-mode
-  (setq org-log-done 'time))
+  (setq org-log-done 'time)
+  (add-hook 'org-mode-hook #'auto-fill-mode))
 
 ;; change Git commit summary length
 (after! magit
   (setq magit-commit-summary-max-length 72))
-
-(after! magit-forge
-  (setq forge-alist (push '("gitlab.hr498.net" "gitlab.com/api/v4"
-                            "gitlab.hr498.net" forge-gitlab-repository) forge-alist)))
 
 ;; RSS feeds stored & organized in org-mode file
 (after! elfeed-org
@@ -93,10 +90,6 @@
   (setq company-idle-delay 0.1
         company-minimum-prefix-length 1))
 
-(after! urbit
-  (aio-wait-for
-   (urbit-launch (getenv "URBIT_URL") (getenv "URBIT_CODE"))))
-
 (setq lsp-enable-file-watchers nil)
 
 (after! web-mode
@@ -106,10 +99,25 @@
 (after! smartparens
   (map! (:localleader
          (:map smartparens-mode-map
-          "<" #'sp-forward-slurp-sexp
-          ">" #'sp-forward-barf-sexp))))
+          ">" #'sp-forward-slurp-sexp
+          "<" #'sp-forward-barf-sexp))))
 
 (after! php-cs-fixer
   (setq php-cs-fixer-command "$HOME/.composer/vendor/bin/php-cs-fixer"
         php-cs-fixer-config-option "$HOME/php_cs.dist.php")
   (add-hook! php-mode #'php-cs-fixer-fix))
+
+(progn
+    (setenv "DATA_ENVIRONMENT" "intlbr")
+    (setenv "ENVIRONMENT_TYPE" "development"))
+
+(setq org-roam-directory "~/grimoire")
+
+(after! markdown-mode
+  (add-hook 'markdown-mode-hook #'auto-fill-mode))
+
+;; (set-company-backend! 'alchemist-iex-mode 'alchemist-company)
+
+;; (after! lsp-mode
+;;   (setq lsp-elixir-dialyzer-enabled nil)
+;;   (setq lsp-elixir-server-command "elixir-ls"))
