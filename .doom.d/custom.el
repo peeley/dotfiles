@@ -10,7 +10,8 @@
  '(safe-local-variable-values
    '((prettier-js-args "--single-quote")
      (cider-clojure-cli-global-options . "-A:dev:test")
-     (cider-preferred-build-tool . "clojure-cli"))))
+     (cider-preferred-build-tool . "clojure-cli")))
+ '(warning-suppress-log-types '((lsp-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

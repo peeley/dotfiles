@@ -150,7 +150,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     dina-font
     proggyfonts
     julia-mono
@@ -171,8 +171,8 @@
   virtualisation.docker.enable = true;
 
   # enable virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "bodo" ];
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "bodo" ];
 
   nix.extraOptions = ''
     keep-outputs = true

@@ -104,7 +104,7 @@
 
   home.packages = with pkgs; [
     ripgrep
-    exa
+    eza
     unzip
     paper-icon-theme
     arc-theme

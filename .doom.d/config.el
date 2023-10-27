@@ -121,3 +121,7 @@
 ;; (after! lsp-mode
 ;;   (setq lsp-elixir-dialyzer-enabled nil)
 ;;   (setq lsp-elixir-server-command "elixir-ls"))
+
+(after! lsp-mode
+  (setq lsp-csharp-server-path "/home/bodo/.nix-profile/bin/OmniSharp")
+  )
