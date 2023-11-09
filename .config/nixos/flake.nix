@@ -9,9 +9,11 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, home-manager, darwin, nixpkgs, ... }@inputs: {
+  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, ... }@inputs: {
     darwinConfigurations."fission" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       inputs = { inherit darwin nixpkgs; };
@@ -34,6 +36,20 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.bodo = import ./hosts/mammon/home.nix;
+        }
+      ];
+    };
+
+    nixosConfigurations."heracles" = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./hosts/heracles/configuration.nix
+
+        nixos-hardware.nixosModules.raspberry-pi-4
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.bodo = import ./hosts/heracles/home.nix;
         }
       ];
     };

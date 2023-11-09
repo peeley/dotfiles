@@ -99,6 +99,7 @@
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-whiskermenu-plugin
     openrgb
+    bintools-unwrapped
   ];
 
   programs.steam.enable = true;
@@ -171,13 +172,18 @@
   virtualisation.docker.enable = true;
 
   # enable virtualbox
-  # virtualisation.virtualbox.host.enable = true;
-  # users.extraGroups.vboxusers.members = [ "bodo" ];
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "bodo" ];
 
   nix.extraOptions = ''
     keep-outputs = true
     keep-derivations = true
     experimental-features = nix-command flakes
   '';
+
+  # allow emulation of ARM 64-bit
+  boot.binfmt.emulatedSystems = [
+    "aarch64-linux"
+  ];
 }
 

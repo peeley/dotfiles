@@ -125,5 +125,6 @@
     })
     rpcs3
     obsidian
+    lutris
   ];
 }
