@@ -40,6 +40,19 @@
       ];
     };
 
+    nixosConfigurations."lepidoptera" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/lepidoptera/configuration.nix
+        # should probably make this more DRY
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.bodo = import ./hosts/lepidoptera/home.nix;
+        }
+      ];
+    };
+
     nixosConfigurations."heracles" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
