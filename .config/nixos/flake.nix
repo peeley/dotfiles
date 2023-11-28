@@ -2,7 +2,7 @@
   description = "the dawn of a new day";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     darwin.url = "github:lnl7/nix-darwin/master";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -44,6 +44,8 @@
       system = "x86_64-linux";
       modules = [
         ./hosts/lepidoptera/configuration.nix
+
+        nixos-hardware.nixosModules.lenovo-thinkpad-x230
         # should probably make this more DRY
         home-manager.nixosModules.home-manager {
           home-manager.useGlobalPkgs = true;

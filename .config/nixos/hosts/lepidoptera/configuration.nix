@@ -24,6 +24,7 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.wifi.macAddress = "permanent";
 
   # Set your time zone.
   time.timeZone = "America/Los_Angeles";
@@ -33,7 +34,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8";
   # console = {
   #   font = "Lat2-Terminus16";
   #   keyMap = "us";
@@ -45,15 +46,22 @@
     enable = true;
 
     # Enable i3 as our desktop environment.
-    desktopManager.xterm.enable = false;
-    displayManager.defaultSession = "none+i3";
+    desktopManager = {
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+    };
+    displayManager.defaultSession = "xfce+i3";
 
     windowManager.i3 = {
       package = pkgs.i3-gaps;
       enable = true;
       extraPackages = with pkgs; [
-	rofi
-	i3lock
+        rofi
+        i3lock
       ];
     };
   };
@@ -99,10 +107,10 @@
     pavucontrol
     xfce.xfce4-pulseaudio-plugin
     xfce.xfce4-whiskermenu-plugin
-    xfce.xfce4-power-manager
     bintools-unwrapped
     rofi
     networkmanagerapplet
+    playerctl
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -181,7 +189,19 @@
   ];
 
   services.thermald.enable = true;
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
+    settings = {
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+    };
+  };
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

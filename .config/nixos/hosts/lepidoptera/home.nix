@@ -136,4 +136,6 @@
     };
     script = "";
   };
+
+  services.playerctld.enable = true;
 }
