@@ -121,10 +121,12 @@
         pcsx2
         dolphin
         bsnes
+        mgba
       ];
     })
     rpcs3
     obsidian
     lutris
+    xfce.thunar-archive-plugin
   ];
 }
