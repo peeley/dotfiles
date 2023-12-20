@@ -1,9 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
+(import ../../common/configuration.nix {
+    pkgs = pkgs;
+}) //
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -82,8 +81,6 @@
      extraGroups = [ "wheel" "docker" "audio" "video" "networkmanager" ]; # Enable ‘sudo’ for the user.
   };
 
-  nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -108,8 +105,6 @@
   programs.git = {
     enable = true;
   };
-
-  programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -151,16 +146,9 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
 
-  fonts.packages = with pkgs; [
-    dina-font
-    proggyfonts
-    julia-mono
-    gohufont
-  ];
-
   # add local NFS server
   fileSystems."/mnt/nfs" = {
-    device = "192.168.1.122:/volume1/Media";
+    device = "hesiod.lab.janissary.xyz:/volume1/Media";
     fsType = "nfs";
   };
 

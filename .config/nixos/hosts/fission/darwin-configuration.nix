@@ -1,10 +1,9 @@
 { pkgs, lib, ... }:
 
+(import ../../common/configuration.nix {
+    pkgs = pkgs;
+}) //
 {
-  environment.variables = {
-    SHELL = "zsh";
-    EDITOR = "neovim";
-  };
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -17,12 +16,6 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  nix.package = pkgs.nixFlakes;
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnsupportedSystem = true;
-  };
 
   nix.extraOptions = ''
     system = aarch64-darwin
@@ -55,8 +48,6 @@
     "obsidian"
   ];
 
-  programs.zsh.enable = true;
-
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
@@ -66,9 +57,4 @@
     Clicking = true;
     TrackpadRightClick = true;
   };
-
-  fonts.fontDir.enable = true;
-  fonts.fonts = with pkgs; [
-    julia-mono
-  ];
 }

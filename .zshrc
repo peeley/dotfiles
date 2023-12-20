@@ -11,26 +11,20 @@ alias g="git"
 alias grep="rg"
 alias cat="bat --theme=ansi --style=changes"
 alias bc="bc -l"
-alias cprss="scp ~/.doom.d/elfeed.org bodo@192.168.1.21:~/.doom.d/elfeed.org"
 alias sail="./vendor/bin/sail"
-
-alias webcam="sudo modprobe v4l2loopback exclusive_caps=1 max_buffers=2 && gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video0"
-alias screen_record="ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4"
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"
 
-export PATH="$PATH:/opt/texlive/2019/bin/x86_64-linux"
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
-export MANPATH="$MANPATH:/opt/texlive/2019/texmf-dist/doc/man"
-export INFOPATH="$INFOPATH:/opt/texlive/2019/texmf-dist/doc/info"
 
-export RUST_SRC_PATH=$HOME/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 [[ $- != *i* ]] && return
 
 export LANG=en_US.utf8
 export EDITOR=vim
+export TERM=xterm-256color
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -48,3 +42,8 @@ eval "$(starship init zsh)"
 
 # start direnv
 eval "$(direnv hook zsh)"
+
+if [ -n "${commands[fzf-share]}" ]; then
+  source "$(fzf-share)/key-bindings.zsh"
+  source "$(fzf-share)/completion.zsh"
+fi
