@@ -6,7 +6,7 @@ bindkey ";3C" forward-word # Option+-> on mac
 alias vim="nvim"
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 alias up="yay -Syu --noconfirm --sudoloop"
-alias ls='exa --color=always --group-directories-first -lh'
+alias ls='eza --color=always --group-directories-first -lh'
 alias g="git"
 alias grep="rg"
 alias cat="bat --theme=ansi --style=changes"

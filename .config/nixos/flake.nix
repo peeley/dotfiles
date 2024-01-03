@@ -13,7 +13,7 @@
     nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, ... }@inputs: {
+  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, ... }@inputs: rec {
     darwinConfigurations."fission" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       inputs = { inherit darwin nixpkgs; };
