@@ -45,5 +45,6 @@
         unzip
         bind
         vale
+        kubectl
     ];
 }
