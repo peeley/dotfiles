@@ -83,6 +83,7 @@
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    hashedPassword = (import ../../common/secrets.nix).hashedPassword;
   };
 
   # List packages installed in system profile. To search, run:
@@ -118,9 +119,10 @@
   networking.firewall.enable = false;
 
   services.k3s = {
-    enables = "true";
+    enable = true;
     role = "agent";
-    serverAddr = "192.168.1.42:6443";
+    serverAddr = "https://192.168.1.42:6443";
+    token = (import ../../common/secrets.nix).k3sToken;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system

@@ -72,13 +72,13 @@
     nixosConfigurations."ixion" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        ./hosts/heracles/configuration.nix
+        ./hosts/ixion/configuration.nix
 
-        nixos-hardware.nixosModules.raspberry-pi-4
+        # nixos-hardware.nixosModules.raspberry-pi-4
         # home-manager.nixosModules.home-manager {
         #   home-manager.useGlobalPkgs = true;
         #   home-manager.useUserPackages = true;
-        #   home-manager.users.bodo = import ./hosts/heracles/home.nix;
+        #   home-manager.users.bodo = import ./hosts/ixion/home.nix;
         # }
       ];
     };
