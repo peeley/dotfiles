@@ -1,26 +1,17 @@
 { config, lib, pkgs, ... }:
 
-let
-  utils = import ../../common/utils.nix {
-    lib = lib;
-  };
-in
-utils.recursiveMerge [
-  (import ../../common/home.nix {
-    config = config;
-    lib = lib;
-    pkgs = pkgs;
-  })
-  {
-    home.stateVersion = "22.05";
+{
+  imports = [
+    ../../common/home.nix
+  ];
 
-    home.packages = with pkgs; [
-      clojure
-      clj-kondo
-      # clojure-lsp
-      leiningen
+  home.stateVersion = "22.05";
 
-      go
-    ];
-  }
-]
+  home.packages = with pkgs; [
+    clojure
+    clj-kondo
+    leiningen
+
+    go
+  ];
+}

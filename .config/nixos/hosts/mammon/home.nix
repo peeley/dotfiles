@@ -1,46 +1,37 @@
 { config, lib, pkgs, ... }:
 
-let
-  utils = import ../../common/utils.nix {
-    lib = lib;
-  };
-in
-utils.recursiveMerge [
-  (import ../../common/home.nix {
-    config = config;
-    lib = lib;
-    pkgs = pkgs;
-  })
-  {
-    home.username = "bodo";
-    home.homeDirectory = "/home/bodo";
+{
+  imports = [
+    ../../common/home.nix
+  ];
 
-    home.stateVersion = "22.11";
+  home.username = "bodo";
+  home.homeDirectory = "/home/bodo";
 
-    programs.home-manager.enable = true;
+  home.stateVersion = "22.11";
 
-    home.packages = with pkgs; [
-      paper-icon-theme
-      arc-theme
-      nordic
-      mullvad-vpn
-      kitty
-      zathura
-      calibre
-      sqlite
-      (retroarch.override {
-        cores = with libretro; [
-          beetle-psx-hw
-          pcsx2
-          dolphin
-          bsnes
-          mgba
-        ];
-      })
-      rpcs3
-      obsidian
-      lutris
-      xfce.thunar-archive-plugin
-    ];
-  }
-]
+  programs.home-manager.enable = true;
+
+  home.packages = with pkgs; [
+    paper-icon-theme
+    arc-theme
+    nordic
+    mullvad-vpn
+    kitty
+    zathura
+    calibre
+    (retroarch.override {
+      cores = with libretro; [
+        beetle-psx-hw
+        pcsx2
+        dolphin
+        bsnes
+        mgba
+      ];
+    })
+    rpcs3
+    obsidian
+    lutris
+    xfce.thunar-archive-plugin
+  ];
+}

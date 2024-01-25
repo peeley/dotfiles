@@ -60,12 +60,11 @@
       modules = [
         ./hosts/heracles/configuration.nix
 
-        nixos-hardware.nixosModules.raspberry-pi-4
-        # home-manager.nixosModules.home-manager {
-        #   home-manager.useGlobalPkgs = true;
-        #   home-manager.useUserPackages = true;
-        #   home-manager.users.bodo = import ./hosts/heracles/home.nix;
-        # }
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.admin = import ./hosts/heracles/home.nix;
+        }
       ];
     };
 
@@ -74,12 +73,11 @@
       modules = [
         ./hosts/ixion/configuration.nix
 
-        # nixos-hardware.nixosModules.raspberry-pi-4
-        # home-manager.nixosModules.home-manager {
-        #   home-manager.useGlobalPkgs = true;
-        #   home-manager.useUserPackages = true;
-        #   home-manager.users.bodo = import ./hosts/ixion/home.nix;
-        # }
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.admin = import ./hosts/ixion/home.nix;
+        }
       ];
     };
   };
