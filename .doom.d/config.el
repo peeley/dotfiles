@@ -125,3 +125,6 @@
 (after! lsp-mode
   (setq lsp-csharp-server-path "/home/bodo/.nix-profile/bin/OmniSharp")
   )
+
+;; allow .mdx files to use markdown-mode
+(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
