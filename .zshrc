@@ -12,6 +12,7 @@ alias grep="rg"
 alias cat="bat --theme=ansi --style=changes"
 alias bc="bc -l"
 alias sail="./vendor/bin/sail"
+alias k="kubectl"
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/usr/local/i386elfgcc"

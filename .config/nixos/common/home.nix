@@ -40,10 +40,11 @@
       fd
       unzip
       bind
-        vale
-        kubectl
-        nixos-generators
-        sqlite
+      vale
+      kubectl
+      nixos-generators
+      sqlite
+      postgresql
     ];
 
   programs.neovim = {
