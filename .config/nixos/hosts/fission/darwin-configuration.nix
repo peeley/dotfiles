@@ -46,6 +46,7 @@
     "tailscale"
     "retroarch"
     "obsidian"
+    "1password"
   ];
 
   # Used for backwards compatibility, please read the changelog before changing.

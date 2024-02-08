@@ -9,9 +9,18 @@
 
   programs.zsh.enable = true;
 
-  fonts = {
+  # nix-darwin still uses `fonts.fonts` instead of `fonts.packages`
+  fonts = if pkgs.stdenv.isLinux then {
     fontDir.enable = true;
     packages = with pkgs; [
+      dina-font
+      proggyfonts
+      julia-mono
+      gohufont
+    ];
+  } else {
+    fontDir.enable = true;
+    fonts = with pkgs; [
       dina-font
       proggyfonts
       julia-mono
