@@ -171,4 +171,6 @@
   boot.binfmt.emulatedSystems = [
     "aarch64-linux"
   ];
+
+  hardware.keyboard.zsa.enable = true;
 }

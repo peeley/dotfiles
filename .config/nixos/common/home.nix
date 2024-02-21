@@ -45,6 +45,7 @@
       nixos-generators
       sqlite
       postgresql
+      kubernetes-helm
     ];
 
   programs.neovim = {
