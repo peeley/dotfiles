@@ -40,13 +40,13 @@
     "firefox"
     "slack"
     "steam"
-    "syncthing"
     "jellyfin-media-player"
     "calibre"
     "tailscale"
     "retroarch"
     "obsidian"
     "1password"
+    "emacs-mac"
   ];
 
   # Used for backwards compatibility, please read the changelog before changing.
