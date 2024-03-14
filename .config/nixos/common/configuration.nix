@@ -5,6 +5,9 @@
   nixpkgs.config = {
     allowUnfree = true;
     allowUnsupportedSystem = true;
+    permittedInsecurePackages = [
+      "electron-25.9.0" # required for obsidian
+    ];
   };
 
   programs.zsh.enable = true;

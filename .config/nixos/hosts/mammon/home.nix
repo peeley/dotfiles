@@ -33,5 +33,6 @@
     obsidian
     lutris
     xfce.thunar-archive-plugin
+    am2rlauncher
   ];
 }
