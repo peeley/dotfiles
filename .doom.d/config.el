@@ -79,10 +79,6 @@
 (after! magit
   (setq magit-commit-summary-max-length 72))
 
-;; RSS feeds stored & organized in org-mode file
-(after! elfeed-org
-  (setq rmh-elfeed-org-files '("~/.doom.d/elfeed.org")))
-
 ;; use `,' as localleader key instead of SPC-m
 (setq doom-localleader-key ",")
 
