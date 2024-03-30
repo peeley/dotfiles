@@ -82,6 +82,7 @@
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
+    hashedPassword = (import ../../common/secrets.nix).hashedPassword;
   };
 
   # List packages installed in system profile. To search, run:
