@@ -80,5 +80,18 @@
         }
       ];
     };
+
+    nixosConfigurations."athena" = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./hosts/athena/configuration.nix
+
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.admin = import ./hosts/athena/home.nix;
+        }
+      ];
+    };
   };
 }

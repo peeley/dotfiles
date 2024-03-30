@@ -25,7 +25,7 @@
     hostName = "gorgon";
     interfaces.end0 = {
       ipv4.addresses = [{
-        address = "192.168.1.117";
+        address = "192.168.1.137";
         prefixLength = 24;
       }];
     };
@@ -40,8 +40,6 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
-  virtualisation.docker.enable = true;
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
@@ -81,7 +79,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
     isNormalUser = true;
-    extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile. To search, run:
