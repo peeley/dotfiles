@@ -130,6 +130,8 @@
   services.k3s = {
     enable = true;
     role = "server";
+    token = (import ../../common/secrets.nix).k3sToken;
+    clusterInit = true;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
