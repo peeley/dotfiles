@@ -10,10 +10,12 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    agenix.url = "github:ryantm/agenix";
+
     nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
-  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, ... }@inputs: rec {
+  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, agenix, ... }@inputs: rec {
     darwinConfigurations."fission" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       inputs = { inherit darwin nixpkgs; };
@@ -37,6 +39,8 @@
           home-manager.useUserPackages = true;
           home-manager.users.bodo = import ./hosts/mammon/home.nix;
         }
+
+        agenix.nixosModules.default
       ];
     };
 
@@ -65,6 +69,8 @@
           home-manager.useUserPackages = true;
           home-manager.users.admin = import ./hosts/heracles/home.nix;
         }
+
+        agenix.nixosModules.default
       ];
     };
 
@@ -78,6 +84,8 @@
           home-manager.useUserPackages = true;
           home-manager.users.admin = import ./hosts/ixion/home.nix;
         }
+
+        agenix.nixosModules.default
       ];
     };
 
@@ -91,6 +99,8 @@
           home-manager.useUserPackages = true;
           home-manager.users.admin = import ./hosts/athena/home.nix;
         }
+
+        agenix.nixosModules.default
       ];
     };
   };

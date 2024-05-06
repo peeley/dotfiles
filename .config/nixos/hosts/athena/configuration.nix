@@ -78,11 +78,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  age.secrets.admin-password-hash.file = ../../secrets/admin-password-hash.age;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
     isNormalUser = true;
-    extraGroups = [ "docker" "wheel" ]; # Enable ‘sudo’ for the user.
-    hashedPassword = (import ../../common/secrets.nix).hashedPassword;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    hashedPasswordFile = config.age.secrets.admin-password-hash.path;
   };
 
   # List packages installed in system profile. To search, run:
@@ -117,11 +119,13 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
+  age.secrets.k3s-token.file = ../../secrets/k3s-token.age;
+
   services.k3s = {
     enable = true;
     role = "agent";
     serverAddr = "https://192.168.1.42:6443";
-    token = (import ../../common/secrets.nix).k3sToken;
+    tokenFile = config.age.secrets.k3s-token.path;
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
