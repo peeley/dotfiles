@@ -124,3 +124,12 @@
 
 ;; allow .mdx files to use markdown-mode
 (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+
+(setq
+ projectile-project-root-functions '(projectile-root-local
+                                     projectile-root-top-down
+                                     projectile-root-top-down-recurring
+                                     projectile-root-bottom-up))
+
+(after! lsp-mode
+  (setq lsp-clients-php-server-command "phpactor"))
