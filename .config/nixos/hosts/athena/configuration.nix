@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../common/raspi.nix
+      ../../common/server.nix
     ];
 
   # Define the hostname and static IP address.

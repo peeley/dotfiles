@@ -7,7 +7,7 @@
 {
   imports =
     [
-      ../../common/configuration.nix
+      ./configuration.nix
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
@@ -34,7 +34,7 @@
 
   virtualisation.docker.enable = true;
 
-  age.secrets.admin-password-hash.file = ../../secrets/admin-password-hash.age;
+  age.secrets.admin-password-hash.file = ../secrets/admin-password-hash.age;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
@@ -63,7 +63,7 @@
   networking.firewall.enable = false;
 
   # Decrypt the k3s token
-  age.secrets.k3s-token.file = ../../secrets/k3s-token.age;
+  age.secrets.k3s-token.file = ../secrets/k3s-token.age;
 
   # Enable k3s
   services.k3s = {

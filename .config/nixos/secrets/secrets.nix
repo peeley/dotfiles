@@ -5,7 +5,8 @@ let
   ixion = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEli8vPjeSMQdg0Z/8SXsW22dR8np+TxfM3wCTmHtW9s";
   heracles = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtnpNKREbh8BKbwm9cMQhAD93Rb4LlzDEh64enElkZh";
   athena = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPRwLRgWd29elyY7D5axaZCpXMuo1yzNPsku2f4SB31N";
-  servers = [ixion heracles athena];
+  thoth = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8btAZ6zNGff/x9TvtS668dAdafz4mtiSFleY7aNIke";
+  servers = [ixion heracles athena thoth];
 in
 {
   "k3s-token.age".publicKeys = clients ++ servers;

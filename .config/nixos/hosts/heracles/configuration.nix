@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../common/raspi.nix
+      ../../common/server.nix
     ];
 
   # Define the gateway and DNS server.
@@ -42,9 +42,9 @@
   };
 
   # Enable k3s
-  services.k3s = lib.mkOverride {
+  services.k3s = {
     enable = true;
-    role = "server";
+    role = lib.mkForce "server";
     serverAddr = "https://192.168.1.42:6443";
     tokenFile = config.age.secrets.k3s-token.path;
   };

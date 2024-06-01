@@ -74,6 +74,7 @@
     xfce.xfce4-whiskermenu-plugin
     openrgb
     bintools-unwrapped
+    element-desktop
   ];
 
   programs.steam.enable = true;
