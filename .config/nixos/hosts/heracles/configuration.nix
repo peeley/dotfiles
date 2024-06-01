@@ -14,7 +14,9 @@
   # Define the gateway and DNS server.
   networking = {
     hostName = "heracles";
+    defaultGateway.interface = "end0";
     interfaces.end0 = {
+      useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.42";
         prefixLength = 24;

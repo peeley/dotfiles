@@ -14,7 +14,9 @@
   # Define the hostname and static IP address.
   networking = {
     hostName = "gorgon";
+    defaultGateway.interface = "end0";
     interfaces.end0 = {
+      useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.137";
         prefixLength = 24;

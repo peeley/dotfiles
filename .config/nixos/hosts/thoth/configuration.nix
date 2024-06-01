@@ -9,11 +9,16 @@
   imports =
     [
       ../../common/server.nix
+      ./hardware-configuration.nix
       # (modulesPath + "/virtualisation/proxmox-image.nix")
     ];
 
   # override values from server.nix, which assumes server is a RasPi
-  boot.loader.grub.enable = lib.mkForce true;
+  boot.loader.grub = {
+    enable = lib.mkForce true;
+    device = "/dev/vda";
+  };
+
   boot.loader.generic-extlinux-compatible.enable = lib.mkForce false;
 
   # proxmox = {
@@ -27,6 +32,7 @@
   networking = {
     usePredictableInterfaceNames = true;
     hostName = "thoth";
+    defaultGateway.interface = "ens18";
     interfaces.ens18 = {
       useDHCP = false;
       ipv4.addresses = [{

@@ -22,10 +22,8 @@
 
   # Define the default gateway and DNS server.
   networking = {
-    interfaces.end0.useDHCP = false;
     defaultGateway = {
       address = "192.168.1.1";
-      interface = "end0";
     };
     nameservers = [
       "192.168.1.1"
