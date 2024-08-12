@@ -46,6 +46,9 @@
       sqlite
       postgresql
       kubernetes-helm
+      cargo
+      rustc
+      clippy
     ];
 
   programs.neovim = {
