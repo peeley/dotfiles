@@ -45,6 +45,7 @@
 
   # Use pipewire for sound
   security.rtkit.enable = true;
+  hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -75,6 +76,8 @@
     openrgb
     bintools-unwrapped
     element-desktop
+    ledger-live-desktop
+    monero-gui
   ];
 
   programs.steam.enable = true;
@@ -133,5 +136,9 @@
     "aarch64-linux"
   ];
 
+  # enable udev rules for ZSA keyboards
   hardware.keyboard.zsa.enable = true;
+
+  # enable udev rules for ledger hardware wallets
+  hardware.ledger.enable = true;
 }
