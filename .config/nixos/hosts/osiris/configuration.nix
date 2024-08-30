@@ -24,12 +24,12 @@
   # Define the default gateway and DNS server.
   networking = {
     usePredictableInterfaceNames = true;
-    hostName = "thoth";
+    hostName = "osiris";
     defaultGateway.interface = "ens18";
     interfaces.ens18 = {
       useDHCP = false;
       ipv4.addresses = [{
-        address = "192.168.1.11";
+        address = "192.168.1.13";
         prefixLength = 24;
       }];
     };
@@ -39,13 +39,13 @@
   services.k3s = {
     enable = true;
     role = lib.mkForce "server";
-    serverAddr = "https://192.168.1.42:6443";
+    serverAddr = "https://192.168.1.11:6443";
     tokenFile = config.age.secrets.k3s-token.path;
   };
 
   proxmox.qemuConf = {
     diskSize = "32768";
-    name = "thoth";
+    name = "osiris";
     cores = 4;
     memory = 8192;
   };

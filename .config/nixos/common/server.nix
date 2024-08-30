@@ -38,8 +38,14 @@
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    hashedPasswordFile = config.age.secrets.admin-password-hash.path;
+    hashedPassword = "$y$j9T$.rH0ynyH4qtx5/l.HDN3q.$MZZ0ETf4IbvjuUZH.UHjIwEkK3RTVjhpf347AcP4O4/";
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIObzQK5vg61WvNubo514N71Ep56MndDC/b7E6JNqm0WB bodo@mammon"
+    ];
   };
+
+  # disable sudo password for wheel group (i.e. admin user)
+  security.sudo.wheelNeedsPassword = false;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -51,8 +57,11 @@
     nfs-utils
   ];
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # Enable the OpenSSH daemon, disable password login
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+  };
 
   # Enable tailscale
   services.tailscale.enable = true;
@@ -67,7 +76,7 @@
   services.k3s = {
     enable = true;
     role = "agent";
-    serverAddr = "https://192.168.1.42:6443";
+    serverAddr = "https://192.168.1.11:6443";
     tokenFile = config.age.secrets.k3s-token.path;
   };
 
