@@ -41,6 +41,7 @@
     hashedPassword = "$y$j9T$.rH0ynyH4qtx5/l.HDN3q.$MZZ0ETf4IbvjuUZH.UHjIwEkK3RTVjhpf347AcP4O4/";
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIObzQK5vg61WvNubo514N71Ep56MndDC/b7E6JNqm0WB bodo@mammon"
+      "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJVqMsagmi1QcqFdbXW2YmZzPjSddYZPtyrwIN7+zhjZaiHoaCyARMwt5d/HoFNotzqxAJATxcicSTHdaH5kWqs= bodo@fission.local"
     ];
   };
 

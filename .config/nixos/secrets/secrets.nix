@@ -1,6 +1,7 @@
 let
   mammon = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIObzQK5vg61WvNubo514N71Ep56MndDC/b7E6JNqm0WB";
-  clients = [mammon];
+  fission = "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBJVqMsagmi1QcqFdbXW2YmZzPjSddYZPtyrwIN7+zhjZaiHoaCyARMwt5d/HoFNotzqxAJATxcicSTHdaH5kWqs=";
+  clients = [mammon fission];
 
   ixion = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEli8vPjeSMQdg0Z/8SXsW22dR8np+TxfM3wCTmHtW9s";
   heracles = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEtnpNKREbh8BKbwm9cMQhAD93Rb4LlzDEh64enElkZh";
