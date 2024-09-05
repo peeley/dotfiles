@@ -1,5 +1,18 @@
 { config, lib, pkgs, ... }:
 
+let
+  kubernetes-helm-wrapped = with pkgs; wrapHelm kubernetes-helm {
+    plugins = with pkgs.kubernetes-helmPlugins; [
+      helm-diff
+      helm-git
+      helm-secrets
+    ];
+  };
+
+  helmfile-wrapped = pkgs.helmfile-wrapped.override {
+    inherit (kubernetes-helm-wrapped) pluginsDir;
+  };
+in
 {
   programs.home-manager.enable = true;
 
@@ -34,6 +47,7 @@
       enableZshIntegration = true;
   };
 
+
   home.packages = with pkgs; [
       ripgrep
       eza
@@ -42,10 +56,11 @@
       bind
       vale
       kubectl
+      helmfile-wrapped
+      kubernetes-helm-wrapped
       nixos-generators
       sqlite
       postgresql
-      kubernetes-helm
       cargo
       rustc
       clippy
