@@ -56,6 +56,7 @@
     bind
     k3s
     nfs-utils
+    openiscsi
   ];
 
   # Enable the OpenSSH daemon, disable password login
@@ -88,6 +89,18 @@
     enabledCollectors = ["systemd"];
     extraFlags = [ "--collector.ethtool" "--collector.softirqs" "--collector.tcpstat" ];
   };
+
+  # Enable iSCSI for Longhorn
+  services.openiscsi = {
+    enable = true;
+    name = "longhorn";
+  };
+
+  # workaround for Longhorn hardcoding path to /usr/bin/nsenter
+  # see GitHub Issue thread: https://github.com/longhorn/longhorn/issues/2166
+  systemd.tmpfiles.rules = [
+    "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
+  ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

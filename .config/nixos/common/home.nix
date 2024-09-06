@@ -6,6 +6,7 @@ let
       helm-diff
       helm-git
       helm-secrets
+      helm-s3
     ];
   };
 
