@@ -30,7 +30,7 @@
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.12";
-        prefixLength = 24;
+        prefixLength = 16;
       }];
     };
   };
@@ -43,10 +43,14 @@
     tokenFile = config.age.secrets.k3s-token.path;
   };
 
-  proxmox.qemuConf = {
-    diskSize = "32768";
-    name = "anubis";
-    cores = 4;
-    memory = 8192;
+  proxmox = {
+    qemuConf = {
+      diskSize = "32768";
+      name = "anubis";
+      cores = 4;
+      memory = 8192;
+    };
+
+    cloudInit.enable = false;
   };
 }

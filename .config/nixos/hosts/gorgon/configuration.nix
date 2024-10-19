@@ -19,7 +19,7 @@
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.137";
-        prefixLength = 24;
+        prefixLength = 16;
       }];
     };
   };
