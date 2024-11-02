@@ -42,4 +42,8 @@
     };
     wantedBy = [ "multi-user.target" ];
   };
+
+  services.k3s = {
+    role = lib.mkForce "agent";
+  };
 }

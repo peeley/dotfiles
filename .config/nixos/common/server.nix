@@ -77,9 +77,15 @@
   # Enable k3s
   services.k3s = {
     enable = true;
-    role = "agent";
+    role = "server";
     serverAddr = "https://192.168.1.11:6443";
     tokenFile = config.age.secrets.k3s-token.path;
+    extraFlags = """
+      --tls-san anubis.lab.janissary.xyz
+      --tls-san osiris.lab.janissary.xyz
+      --tls-san ixion.lab.janissary.xyz
+      --tls-san thoth.lab.janissary.xyz
+    """;
   };
 
   # Enable Prometheus node exporter

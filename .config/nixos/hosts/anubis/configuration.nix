@@ -35,14 +35,6 @@
     };
   };
 
-  # Enable k3s
-  services.k3s = {
-    enable = true;
-    role = lib.mkForce "server";
-    serverAddr = "https://192.168.1.11:6443";
-    tokenFile = config.age.secrets.k3s-token.path;
-  };
-
   proxmox.qemuConf = {
     diskSize = "32768";
     name = "anubis";

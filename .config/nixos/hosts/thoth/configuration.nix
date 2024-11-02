@@ -35,13 +35,6 @@
     };
   };
 
-  # Enable k3s
-  services.k3s = {
-    enable = true;
-    role = lib.mkForce "server";
-    tokenFile = config.age.secrets.k3s-token.path;
-  };
-
   proxmox.qemuConf = {
     diskSize = "32768";
     name = "thoth";

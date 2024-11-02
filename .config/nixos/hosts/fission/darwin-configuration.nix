@@ -58,4 +58,7 @@
     Clicking = true;
     TrackpadRightClick = true;
   };
+
+  # disable scroll acceleration
+  # system.defaults.".GlobalPreferences"."com.apple.scrollwheel.scaling" = -1.0;
 }
