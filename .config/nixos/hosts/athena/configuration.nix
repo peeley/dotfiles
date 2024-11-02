@@ -19,8 +19,10 @@
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.117";
-        prefixLength = 24;
+        prefixLength = 16;
       }];
     };
   };
+
+  services.k3s.enable = lib.mkForce false;
 }

@@ -30,15 +30,19 @@
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.13";
-        prefixLength = 24;
+        prefixLength = 16;
       }];
     };
   };
 
-  proxmox.qemuConf = {
-    diskSize = "32768";
-    name = "osiris";
-    cores = 4;
-    memory = 8192;
+  proxmox = {
+    qemuConf = {
+      diskSize = "32768";
+      name = "osiris";
+      cores = 4;
+      memory = 8192;
+    };
+
+    cloudInit.enable = false;
   };
 }
