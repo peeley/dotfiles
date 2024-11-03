@@ -68,6 +68,10 @@
   # start SSH agent for forwarding keys
   programs.ssh.startAgent = true;
 
+  # enable PAM to use SSH Agent signatures for authentication (e.g., running
+  # sudo in an SSH session)
+  security.pam.sshAgentAuth.enable = true;
+
   # Enable tailscale
   services.tailscale.enable = true;
 
