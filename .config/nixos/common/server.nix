@@ -65,6 +65,9 @@
     settings.PasswordAuthentication = false;
   };
 
+  # start SSH agent for forwarding keys
+  programs.ssh.startAgent = true;
+
   # Enable tailscale
   services.tailscale.enable = true;
 
