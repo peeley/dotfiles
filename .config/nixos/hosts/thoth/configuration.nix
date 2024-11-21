@@ -9,6 +9,7 @@
   imports =
     [
       ../../common/server.nix
+      ../../common/proxmox.nix
       ./hardware-configuration.nix
       (modulesPath + "/virtualisation/proxmox-image.nix")
     ];
@@ -35,14 +36,5 @@
     };
   };
 
-  proxmox = {
-    qemuConf = {
-      diskSize = "65536";
-      name = "thoth";
-      cores = 4;
-      memory = 8192;
-    };
-
-    cloudInit.enable = false;
-  };
+  customModules.proxmox.enable = true;
 }

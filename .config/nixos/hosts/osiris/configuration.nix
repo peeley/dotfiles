@@ -35,14 +35,5 @@
     };
   };
 
-  proxmox = {
-    qemuConf = {
-      diskSize = "65536";
-      name = "osiris";
-      cores = 4;
-      memory = 8192;
-    };
-
-    cloudInit.enable = false;
-  };
+  customModules.proxmox.enable = true;
 }
