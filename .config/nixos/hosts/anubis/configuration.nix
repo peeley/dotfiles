@@ -37,7 +37,7 @@
 
   proxmox = {
     qemuConf = {
-      diskSize = "32768";
+      diskSize = "65536";
       name = "anubis";
       cores = 4;
       memory = 8192;

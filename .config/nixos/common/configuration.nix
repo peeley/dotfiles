@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  nix.package = pkgs.nixFlakes;
+  nix.package = pkgs.nixVersions.stable;
   nixpkgs.config = {
     allowUnfree = true;
     allowUnsupportedSystem = true;
