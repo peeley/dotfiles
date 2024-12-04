@@ -9,7 +9,7 @@
     customModules.proxmox.enable = lib.mkEnableOption "Enable Proxmox settings for homelab VMs";
   };
 
-  config = {
+  config = lib.mkIf config.customModules.proxmox.enable {
     proxmox = {
       qemuConf = {
         diskSize = 65536;

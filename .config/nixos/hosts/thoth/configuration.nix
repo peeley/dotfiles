@@ -11,7 +11,6 @@
       ../../common/server.nix
       ../../common/proxmox.nix
       ./hardware-configuration.nix
-      (modulesPath + "/virtualisation/proxmox-image.nix")
     ];
 
   # override values from server.nix, which assumes server is a RasPi

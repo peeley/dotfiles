@@ -45,5 +45,8 @@
 
   services.k3s = {
     role = lib.mkForce "agent";
+    extraFlags = lib.mkForce ''
+      --node-label zigbee=true
+    '';
   };
 }
