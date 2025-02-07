@@ -18,15 +18,13 @@
     kitty
     zathura
     calibre
-    (retroarch.override {
-      cores = with libretro; [
+    (retroarch.withCores (cores: with cores; [
         beetle-psx-hw
         pcsx2
         dolphin
         bsnes
         mgba
-      ];
-    })
+    ]))
     rpcs3
     obsidian
     lutris
