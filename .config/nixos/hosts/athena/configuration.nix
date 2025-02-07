@@ -14,8 +14,8 @@
   # Define the hostname and static IP address.
   networking = {
     hostName = "athena";
-    defaultGateway.interface = "end0";
-    interfaces.end0 = {
+    defaultGateway.interface = "enu1u1";
+    interfaces.enu1u1 = {
       useDHCP = false;
       ipv4.addresses = [{
         address = "192.168.1.117";
