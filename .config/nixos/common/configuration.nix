@@ -7,6 +7,8 @@
     allowUnsupportedSystem = true;
     permittedInsecurePackages = [
       "electron-25.9.0" # required for obsidian
+      "dotnet-sdk-6.0.428" # required until upgrades to .NET 8 are done
+      "dotnet-runtime-6.0.36"
     ];
   };
 
