@@ -141,4 +141,21 @@
 
   # enable udev rules for ledger hardware wallets
   hardware.ledger.enable = true;
+
+  # enable CUPS for printing
+  services.printing.enable = true;
+  # enable auto-discovery of network printers
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  # enable 1password, and run a keyring for it to store secrets on
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ "bodo" ];
+  };
+  services.gnome.gnome-keyring.enable = true;
 }
