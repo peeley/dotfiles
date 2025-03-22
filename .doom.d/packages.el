@@ -50,3 +50,6 @@
 ;(unpin! t)
 
 (unpin! php-cs-fixer)
+
+;; LLM-in-Emacs
+(package! gptel)
