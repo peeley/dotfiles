@@ -103,20 +103,8 @@
         php-cs-fixer-config-option "$HOME/php_cs.dist.php")
   (add-hook! php-mode #'php-cs-fixer-fix))
 
-(progn
-    (setenv "DATA_ENVIRONMENT" "intlbr")
-    (setenv "ENVIRONMENT_TYPE" "development"))
-
-(setq org-roam-directory "~/grimoire")
-
 (after! markdown-mode
   (add-hook 'markdown-mode-hook #'auto-fill-mode))
-
-;; (set-company-backend! 'alchemist-iex-mode 'alchemist-company)
-
-;; (after! lsp-mode
-;;   (setq lsp-elixir-dialyzer-enabled nil)
-;;   (setq lsp-elixir-server-command "elixir-ls"))
 
 (after! lsp-mode
   (setq lsp-csharp-server-path "/home/bodo/.nix-profile/bin/OmniSharp")
