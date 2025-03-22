@@ -104,20 +104,25 @@
   (add-hook! php-mode #'php-cs-fixer-fix))
 
 (after! markdown-mode
+  ;; allow .mdx files to use markdown-mode
   (add-hook 'markdown-mode-hook #'auto-fill-mode))
 
-(after! lsp-mode
-  (setq lsp-csharp-server-path "/home/bodo/.nix-profile/bin/OmniSharp")
-  )
-
-;; allow .mdx files to use markdown-mode
 (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
 
 (setq
- projectile-project-root-functions '(projectile-root-local
+ projectile-project-root-functions '(projectile-root-marked
+                                     projectile-root-local
                                      projectile-root-top-down
                                      projectile-root-top-down-recurring
                                      projectile-root-bottom-up))
 
 (after! lsp-mode
   (setq lsp-clients-php-server-command "phpactor"))
+
+;; turn off spellcheck for text-mode (and all derived modes)
+(after! text-mode
+  (remove-hook! 'text-mode-hook #'spell-fu-mode))
+
+;; enable spellchecking in markdown mode
+(after! markdown-mode
+  (add-hook! 'markdown-mode-hook #'spell-fu-mode))
