@@ -65,6 +65,13 @@ in
       cargo
       rustc
       clippy
+      (aspellWithDicts (
+        dicts: with dicts; [
+          en
+          en-computers
+          en-science
+        ]
+      ))
     ];
 
   programs.neovim = {

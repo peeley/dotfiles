@@ -78,6 +78,7 @@
     element-desktop
     ledger-live-desktop
     monero-gui
+    gnupg
   ];
 
   programs.steam.enable = true;
@@ -157,5 +158,7 @@
     enable = true;
     polkitPolicyOwners = [ "bodo" ];
   };
-  services.gnome.gnome-keyring.enable = true;
+  # we only need KDE Wallet as a D-Bus secrets service provider, but we need to
+  # enable all of KDE to use it
+  services.desktopManager.plasma6.enable = true;
 }
