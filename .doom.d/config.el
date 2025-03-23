@@ -92,11 +92,11 @@
   (setq web-mode-enable-current-element-highlight t)
   (setq web-mode-markup-indent-offset 2))
 
-(after! smartparens
-  (map! (:localleader
-         (:map smartparens-mode-map
-          ">" #'sp-forward-slurp-sexp
-          "<" #'sp-forward-barf-sexp))))
+(map! :after smartparens
+      :map smartparens-mode-map
+      :localleader
+      ">" #'sp-forward-slurp-sexp
+      "<" #'sp-forward-barf-sexp)
 
 (after! php-cs-fixer
   (setq php-cs-fixer-command "$HOME/.composer/vendor/bin/php-cs-fixer"
@@ -126,3 +126,9 @@
 ;; enable spellchecking in markdown mode
 (after! markdown-mode
   (add-hook! 'markdown-mode-hook #'spell-fu-mode))
+
+(use-package! gptel
+  :config
+  (map! :leader
+        (:prefix ("a" . "ai")
+                 "i" #'gptel)))
