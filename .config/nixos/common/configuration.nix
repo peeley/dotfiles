@@ -23,6 +23,7 @@
       julia-mono
       gohufont
       font-awesome
+      nerd-fonts.symbols-only
     ];
   } else {
     fontDir.enable = true;
@@ -31,6 +32,7 @@
       proggyfonts
       julia-mono
       gohufont
+      nerd-fonts.symbols-only
     ];
   };
 
