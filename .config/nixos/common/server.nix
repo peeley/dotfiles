@@ -72,9 +72,6 @@
   # sudo in an SSH session)
   security.pam.sshAgentAuth.enable = true;
 
-  # Enable tailscale
-  services.tailscale.enable = true;
-
   # Disable the firewall altogether.
   networking.firewall.enable = false;
 
@@ -85,7 +82,7 @@
   services.k3s = {
     enable = true;
     role = "server";
-    serverAddr = "https://192.168.1.11:6443";
+    serverAddr = "https://192.168.10.13:6443";
     tokenFile = config.age.secrets.k3s-token.path;
     extraFlags = ''
       --tls-san anubis.lab.janissary.xyz \
