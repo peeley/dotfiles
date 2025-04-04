@@ -129,6 +129,11 @@
 
 (use-package! gptel
   :config
+  (setq gptel-prompt-prefix-alist '((markdown-mode . "### Prompt: \n")
+                                   (org-mode . "*** ")
+                                   (text-mode . "### ")))
+  (setq gptel-response-prefix-alist '((markdown-mode . "### Response: \n")))
   (map! :leader
         (:prefix ("a" . "ai")
-                 "i" #'gptel)))
+                 "i" #'gptel))
+  (map! :nv "S-<return>" #'gptel-menu))
