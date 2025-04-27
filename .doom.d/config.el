@@ -55,9 +55,9 @@
 
 ;; use tab for autocomplete
 (map! (:after company
-        (:map company-active-map
-         "TAB" #'company-complete-selection
-         [tab] #'company-complete-selection)))
+              (:map company-active-map
+                    "TAB" #'company-complete-selection
+                    [tab] #'company-complete-selection)))
 
 ;; set cursor color/shape defaults
 (after! evil
@@ -130,10 +130,16 @@
 (use-package! gptel
   :config
   (setq gptel-prompt-prefix-alist '((markdown-mode . "### Prompt: \n")
-                                   (org-mode . "*** ")
-                                   (text-mode . "### ")))
+                                    (org-mode . "*** ")
+                                    (text-mode . "### ")))
   (setq gptel-response-prefix-alist '((markdown-mode . "### Response: \n")))
   (map! :leader
         (:prefix ("a" . "ai")
                  "i" #'gptel))
   (map! :nv "S-<return>" #'gptel-menu))
+
+(use-package! aidermacs
+  :config
+  (map! :leader
+        (:prefix ("a" . "ai")
+                 "c" #'aidermacs-transient-menu)))

@@ -53,3 +53,6 @@
 
 ;; LLM-in-Emacs
 (package! gptel)
+
+;; ai pair programming
+(package! aidermacs)
