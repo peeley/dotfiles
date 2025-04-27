@@ -79,6 +79,7 @@
     ledger-live-desktop
     monero-gui
     gnupg
+    orca-slicer
   ];
 
   programs.steam.enable = true;
