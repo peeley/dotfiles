@@ -143,3 +143,7 @@
   (map! :leader
         (:prefix ("a" . "ai")
                  "c" #'aidermacs-transient-menu)))
+
+;; don't bug me when I'm trying to exit
+(setq confirm-kill-emacs nil)
+(setq confirm-kill-processes nil)
