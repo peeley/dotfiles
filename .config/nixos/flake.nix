@@ -13,9 +13,11 @@
     agenix.url = "github:ryantm/agenix";
 
     nixos-hardware.url = "github:nixos/nixos-hardware";
+
+    disko.url = "github:nix-community/disko";
   };
 
-  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, agenix, ... }@inputs: rec {
+  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, agenix, disko, ... }@inputs: rec {
     darwinConfigurations."fission" = darwin.lib.darwinSystem {
       system = "aarch64-darwin";
       inputs = { inherit darwin nixpkgs; };
@@ -134,7 +136,6 @@
       ];
     };
 
-
     nixosConfigurations."osiris" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -147,6 +148,23 @@
         }
 
         agenix.nixosModules.default
+      ];
+    };
+
+    nixosConfigurations."seth" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hosts/seth/configuration.nix
+
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.admin = import ./hosts/seth/home.nix;
+        }
+
+        agenix.nixosModules.default
+
+        disko.nixosModules.disko
       ];
     };
   };

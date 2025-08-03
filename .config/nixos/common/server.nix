@@ -11,9 +11,9 @@
     ];
 
   # Use the extlinux boot loader. (NixOS wants to enable GRUB by default)
-  boot.loader.grub.enable = false;
+  boot.loader.grub.enable = lib.mkDefault false;
   # Enables the generation of /boot/extlinux/extlinux.conf
-  boot.loader.generic-extlinux-compatible.enable = true;
+  boot.loader.generic-extlinux-compatible.enable = lib.mkDefault true;
 
   # required for k3s
   boot.kernelParams = [
@@ -34,7 +34,6 @@
 
   age.secrets.admin-password-hash.file = ../secrets/admin-password-hash.age;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.

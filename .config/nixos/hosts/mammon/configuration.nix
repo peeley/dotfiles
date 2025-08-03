@@ -80,6 +80,8 @@
     monero-gui
     gnupg
     orca-slicer
+    terraform
+    terraform-providers.proxmox
   ];
 
   programs.steam.enable = true;
