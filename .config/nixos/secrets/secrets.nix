@@ -9,7 +9,8 @@ let
   thoth = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINvFk9tHSoQEOCE1FYnOb8XvJZngT9cQjqDmSACIlSTn";
   anubis = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDtMDaXfqZeNEVkTFLcn80Yvhtq0UU7+t7qTTZwJ2RrI";
   osiris = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJTf+nMqirqkEvQnkFXup+GIhRCde1NpAEwdkOVCGhLA";
-  servers = [ixion heracles athena thoth anubis osiris];
+  seth = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPEWMH5fXKJYSjxISe+VqlL+dCuykZ9NDieWkw1vNwdN";
+  servers = [ixion heracles athena thoth anubis osiris seth];
 in
 {
   "k3s-token.age".publicKeys = clients ++ servers;
