@@ -14,7 +14,6 @@
     paper-icon-theme
     arc-theme
     nordic
-    mullvad-vpn
     kitty
     zathura
     calibre

@@ -56,17 +56,16 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bodo = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "docker" "audio" "video" "networkmanager" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "docker" "audio" "video" "networkmanager" "plugdev" ]; # Enable ‘sudo’ for the user.
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    emacs
-    wget
+    ((emacsPackagesFor emacs).emacsWithPackages (
+      epkgs: [epkgs.vterm]
+    ))
     firefox
-    tailscale
     spotify
     jellyfin-media-player
     discord
@@ -79,9 +78,9 @@
     ledger-live-desktop
     monero-gui
     gnupg
-    orca-slicer
     terraform
     terraform-providers.proxmox
+    sdrpp
   ];
 
   programs.steam.enable = true;
@@ -90,10 +89,6 @@
   programs.git = {
     enable = true;
   };
-
-  # List services that you want to enable:
-  services.tailscale.enable = true;
-  services.mullvad-vpn.enable = true;
 
   location = {
     provider = "manual";
@@ -132,8 +127,8 @@
   virtualisation.docker.enable = true;
 
   # enable virtualbox
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "bodo" ];
+  # virtualisation.virtualbox.host.enable = true;
+  # users.extraGroups.vboxusers.members = [ "bodo" ];
 
   # allow emulation of ARM 64-bit
   boot.binfmt.emulatedSystems = [
@@ -164,4 +159,7 @@
   # we only need KDE Wallet as a D-Bus secrets service provider, but we need to
   # enable all of KDE to use it
   services.desktopManager.plasma6.enable = true;
+
+  # enable RTL-SDR
+  hardware.rtl-sdr.enable = true;
 }

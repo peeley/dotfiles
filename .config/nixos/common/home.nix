@@ -72,6 +72,8 @@ in
           en-science
         ]
       ))
+      busybox
+      wget
     ];
 
   programs.neovim = {
