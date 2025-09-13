@@ -30,6 +30,20 @@
     };
   };
 
+  # create group for accessing video encode/decode hardware
+  users.groups = {
+    render = {
+      gid = 303;
+    };
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-sdk
+    ];
+  };
+
   services.k3s = {
     role = lib.mkForce "agent";
     extraFlags = lib.mkForce ''
