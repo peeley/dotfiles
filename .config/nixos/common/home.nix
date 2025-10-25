@@ -72,7 +72,6 @@ in
           en-science
         ]
       ))
-      busybox
       wget
     ];
 
