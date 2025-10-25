@@ -81,6 +81,7 @@
     terraform
     terraform-providers.proxmox
     sdrpp
+    orca-slicer
   ];
 
   programs.steam.enable = true;
