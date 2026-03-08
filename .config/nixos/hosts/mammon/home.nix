@@ -28,6 +28,7 @@
     obsidian
     lutris
     xfce.thunar-archive-plugin
-    am2rlauncher
+    # marked as broken. really need to get around to fixing this!
+    # am2rlauncher
   ];
 }
