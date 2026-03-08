@@ -73,6 +73,7 @@ in
         ]
       ))
       wget
+      claude-code
     ];
 
   programs.neovim = {
