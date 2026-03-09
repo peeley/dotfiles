@@ -168,4 +168,14 @@
 
   # enable RTL-SDR
   hardware.rtl-sdr.enable = true;
+
+  # enable earlyoom out-of-memory killer
+  services.earlyoom = {
+    enable = true;
+    enableNotifications = true;
+    extraArgs = [
+      # kill unimportant (and likely memory hungry) programs first
+      "--prefer .firefox-wrapped .spotify-wrapped steam"
+    ];
+  };
 }
