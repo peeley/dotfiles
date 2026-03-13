@@ -175,7 +175,7 @@
     enableNotifications = true;
     extraArgs = [
       # kill unimportant (and likely memory hungry) programs first
-      "--prefer .firefox-wrapped .spotify-wrapped steam"
+      "--prefer '^(.firefox-wrapped|.spotify-wrapped|steam)$"
     ];
   };
 }
