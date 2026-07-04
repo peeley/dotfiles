@@ -74,6 +74,7 @@ in
       ))
       wget
       claude-code
+      terraform
     ];
 
   programs.neovim = {
