@@ -14,9 +14,6 @@
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
-
   nix.extraOptions = ''
     system = aarch64-darwin
     extra-platforms = aarch64-darwin x86_64-darwin
@@ -58,6 +55,9 @@
     Clicking = true;
     TrackpadRightClick = true;
   };
+
+  # set the primary user account, for things like homebrew package installation
+  system.primaryUser = "bodo";
 
   # disable scroll acceleration
   # system.defaults.".GlobalPreferences"."com.apple.scrollwheel.scaling" = -1.0;

@@ -14,24 +14,13 @@
 
   programs.zsh.enable = true;
 
-  # nix-darwin still uses `fonts.fonts` instead of `fonts.packages`
-  fonts = if pkgs.stdenv.isLinux then {
-    fontDir.enable = true;
+  fonts = {
     packages = with pkgs; [
       dina-font
       proggyfonts
       julia-mono
       gohufont
       font-awesome
-      nerd-fonts.symbols-only
-    ];
-  } else {
-    fontDir.enable = true;
-    fonts = with pkgs; [
-      dina-font
-      proggyfonts
-      julia-mono
-      gohufont
       nerd-fonts.symbols-only
     ];
   };
