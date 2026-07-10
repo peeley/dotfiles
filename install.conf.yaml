@@ -1,0 +1,14 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+      backup: true
+
+- link:
+    ~/.config/kitty: kitty
+    ~/.config/nixpkgs: nixpkgs
+    ~/.doom.d: emacs
+    ~/.nethackrc: nethack/.nethackrc
+    ~/.ssh/config: ssh/config
+    ~/.vimrc: vim/.vimrc
+    ~/.zshrc: zsh/.zshrc
