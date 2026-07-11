@@ -6,6 +6,7 @@
 
 - link:
     ~/.config/kitty: kitty
+    ~/.config/nixos: nixos
     ~/.config/nixpkgs: nixpkgs
     ~/.doom.d: emacs
     ~/.nethackrc: nethack/.nethackrc
