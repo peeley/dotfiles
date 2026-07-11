@@ -2,6 +2,7 @@
 
 bindkey ";3D" backward-word # Option+<- on mac
 bindkey ";3C" forward-word # Option+-> on mac
+bindkey -v
 
 alias vim="nvim"
 alias dotfiles="git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
@@ -23,7 +24,7 @@ export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 [[ $- != *i* ]] && return
 
-export LANG=en_US.utf8
+export LANG="en_US.UTF-8"
 export EDITOR=vim
 export TERM=xterm-256color
 
