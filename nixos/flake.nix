@@ -17,155 +17,90 @@
     disko.url = "github:nix-community/disko";
   };
 
-  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, agenix, disko, ... }@inputs: rec {
-    darwinConfigurations."fission" = darwin.lib.darwinSystem {
-      system = "aarch64-darwin";
-      inputs = { inherit darwin nixpkgs; };
-      modules = [
-        ./hosts/fission/darwin-configuration.nix
-        home-manager.darwinModules.home-manager {
+  outputs = { self, home-manager, darwin, nixpkgs, nixos-hardware, agenix, disko, ... }@inputs:
+    let
+      nixosHosts = [
+        {
+          name = "mammon";
+          system = "x86_64-linux";
+          user = "bodo";
+        }
+        {
+          name = "lepidoptera";
+          system = "x86_64-linux";
+          user = "bodo";
+          extraModules = [ nixos-hardware.nixosModules.lenovo-thinkpad-x230 ];
+        }
+        {
+          name = "heracles";
+          system = "aarch64-linux";
+          user = "admin";
+        }
+        {
+          name = "ixion";
+          system = "aarch64-linux";
+          user = "admin";
+        }
+        {
+          name = "athena";
+          system = "aarch64-linux";
+          user = "admin";
+        }
+        {
+          name = "thoth";
+          system = "x86_64-linux";
+          user = "admin";
+        }
+        {
+          name = "anubis";
+          system = "x86_64-linux";
+          user = "admin";
+        }
+        {
+          name = "osiris";
+          system = "x86_64-linux";
+          user = "admin";
+        }
+        {
+          name = "seth";
+          system = "x86_64-linux";
+          user = "admin";
+          extraModules = [ disko.nixosModules.disko ];
+        }
+      ];
+
+      mkNixosHost = { name, system, user, extraModules ? [] }: {
+        inherit name;
+        value = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            (./. + "/hosts/${name}/configuration.nix")
+            home-manager.nixosModules.home-manager
+            agenix.nixosModules.default
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user} = import (./. + "/hosts/${name}/home.nix");
+            }
+          ] ++ extraModules;
+        };
+      };
+    in
+    rec {
+      darwinConfigurations."fission" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        inputs = { inherit darwin nixpkgs; };
+        modules = [
+          ./hosts/fission/darwin-configuration.nix
+          home-manager.darwinModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.bodo = import ./hosts/fission/home.nix;
-        }
-      ];
+          }
+        ];
+      };
+
+      nixosConfigurations = builtins.listToAttrs (map mkNixosHost nixosHosts);
     };
-
-    nixosConfigurations."mammon" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/mammon/configuration.nix
-        # should probably make this more DRY
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.bodo = import ./hosts/mammon/home.nix;
-        }
-
-        agenix.nixosModules.default
-      ];
-    };
-
-    nixosConfigurations."lepidoptera" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/lepidoptera/configuration.nix
-
-        nixos-hardware.nixosModules.lenovo-thinkpad-x230
-        # should probably make this more DRY
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.bodo = import ./hosts/lepidoptera/home.nix;
-        }
-      ];
-    };
-
-    nixosConfigurations."heracles" = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = [
-        ./hosts/heracles/configuration.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.admin = import ./hosts/heracles/home.nix;
-        }
-
-        agenix.nixosModules.default
-      ];
-    };
-
-    nixosConfigurations."ixion" = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = [
-        ./hosts/ixion/configuration.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.admin = import ./hosts/ixion/home.nix;
-        }
-
-        agenix.nixosModules.default
-      ];
-    };
-
-    nixosConfigurations."athena" = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = [
-        ./hosts/athena/configuration.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.admin = import ./hosts/athena/home.nix;
-        }
-
-        agenix.nixosModules.default
-      ];
-    };
-
-    nixosConfigurations."thoth" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/thoth/configuration.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.admin = import ./hosts/thoth/home.nix;
-        }
-
-        agenix.nixosModules.default
-      ];
-    };
-
-    nixosConfigurations."anubis" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/anubis/configuration.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.admin = import ./hosts/anubis/home.nix;
-        }
-
-        agenix.nixosModules.default
-      ];
-    };
-
-    nixosConfigurations."osiris" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/osiris/configuration.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.admin = import ./hosts/osiris/home.nix;
-        }
-
-        agenix.nixosModules.default
-      ];
-    };
-
-    nixosConfigurations."seth" = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/seth/configuration.nix
-
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.admin = import ./hosts/seth/home.nix;
-        }
-
-        agenix.nixosModules.default
-
-        disko.nixosModules.disko
-      ];
-    };
-  };
 }
