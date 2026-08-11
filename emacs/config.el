@@ -147,3 +147,7 @@
 ;; don't bug me when I'm trying to exit
 (setq confirm-kill-emacs nil)
 (setq confirm-kill-processes nil)
+
+;; fix indentation on JS/TS files
+(setq js-indent-level 2)
+(setq typescript-indent-level 2)

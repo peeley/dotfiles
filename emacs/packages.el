@@ -56,3 +56,9 @@
 
 ;; ai pair programming
 (package! aidermacs)
+
+;; for the `just` command runner
+(package! just-mode)
+
+;; protobuf mode, for protocol buffers
+(package! protobuf-mode)

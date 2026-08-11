@@ -20,12 +20,17 @@ export PATH="$PATH:/usr/local/i386elfgcc"
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
+export PATH="/Applications/Docker.app/Contents:$PATH"
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 
 [[ $- != *i* ]] && return
 
 export LANG="en_US.UTF-8"
 export EDITOR=vim
+export VISUAL="$EDITOR"
 export TERM=xterm-256color
 
 export NVM_DIR="$HOME/.nvm"
@@ -49,3 +54,5 @@ if [ -n "${commands[fzf-share]}" ]; then
   source "$(fzf-share)/key-bindings.zsh"
   source "$(fzf-share)/completion.zsh"
 fi
+
+source .zshrc.work
